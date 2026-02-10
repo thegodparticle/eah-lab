@@ -1,27 +1,29 @@
-# SITE SETUP
+# SITE PARAMETERS
 # Guide: https://docs.hugoblox.com/tutorial/
 # Documentation: https://docs.hugoblox.com/
-# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+# This file is formatted using YAML syntax.
 
-# Appearance
-
+# -----------------------------------------------------------------------------
+# APPEARANCE & THEME
+# -----------------------------------------------------------------------------
 appearance:
-  theme_day: minimal
-  theme_night:
-  font: native
-  font_size: L
+  theme_day: minimal          # Clean, white, high-contrast professional look
+  theme_night: minimal        # Keeps it consistent (or use 'navy' for dark mode)
+  font: rose-pine             # A modern, elegant font pairing (or try 'minimal')
+  font_size: L                # Large text is modern and accessible
 
-# SEO
-
+# -----------------------------------------------------------------------------
+# SEO & MARKETING
+# -----------------------------------------------------------------------------
 marketing:
   seo:
     site_type: Organization
-    local_business_type: ''
-    org_name: ''
-    description: 'A highly-customizable Hugo research group theme powered by Wowchemy website builder.'
-    twitter: 'GetResearchDev'
+    local_business_type: 'Research Laboratory'
+    org_name: 'Electric & Acoustic Hearing Lab'
+    description: 'Investigating psychoacoustics, auditory neuroscience, and cochlear implants at the University of South Alabama.'
+    twitter: ''               # Add your lab's Twitter handle if you have one
   analytics:
-    google_analytics: ''
+    google_analytics: ''      # Add your ID (G-XXXXXXXXXX) later
     baidu_tongji: ''
     google_tag_manager: ''
     microsoft_clarity: ''
@@ -29,90 +31,88 @@ marketing:
     google: ''
     baidu: ''
 
-# Site header
-
+# -----------------------------------------------------------------------------
+# HEADER & NAVIGATION
+# -----------------------------------------------------------------------------
 header:
   navbar:
     enable: true
-    align: r
-    show_logo: true
+    align: r                  # Right-aligned links look more modern
+    show_logo: true           # Ensure you have a logo.png in assets/media/
     show_language: false
-    show_day_night: true
+    show_day_night: true      # Toggles are popular and user-friendly
     show_search: true
-    highlight_active_link: false
+    highlight_active_link: true
 
-# Site footer
-
+# -----------------------------------------------------------------------------
+# FOOTER
+# -----------------------------------------------------------------------------
 footer:
   copyright:
-    notice: '© {year} Me. This work is licensed under {license}'
+    notice: '© {year} Electric & Acoustic Hearing Lab. University of South Alabama.'
     license:
-      enable: true
+      enable: false           # Simplified footer (removes Creative Commons clutter)
       allow_derivatives: false
       share_alike: true
       allow_commercial: false
 
-# Localization
-
+# -----------------------------------------------------------------------------
+# REGIONAL SETTINGS
+# -----------------------------------------------------------------------------
 locale:
   date_format: 'Jan 2, 2006'
   time_format: '3:04 PM'
   address_format: en-us
 
-# Site features
-
+# -----------------------------------------------------------------------------
+# FEATURES & EXTENSIONS
+# -----------------------------------------------------------------------------
 features:
   syntax_highlighter:
-    enable: false
+    enable: true              # Useful if you share Python/Matlab code
+    theme: github-light
     extra_languages:
       - r
+      - python
       - latex
   math:
-    enable: false
+    enable: true              # CRITICAL for a hearing lab (formulas/equations)
   privacy_pack:
     enable: false
   repository:
-    url: 'https://github.com/<username>/<repository>'
+    url: 'https://github.com/thegodparticle/eah-lab'
     content_dir: content
     branch: main
   avatar:
     gravatar: false
-    shape: circle
+    shape: circle             # 'circle' is standard for modern profiles
   comment:
-    provider: ''
-    disqus:
-      shortname: ''
-      show_count: true
-    commento:
-      url: ''
-    giscus:
-      repo: ''
-      repo_id: ''
-      category: ''
-      category_id: ''
+    provider: ''              # Comments usually disabled for lab sites
   search:
-    provider: wowchemy
+    provider: wowchemy        # Built-in search
     algolia:
       app_id: ''
       api_key: ''
       index_name: ''
       show_logo: false
   map:
-    provider: 'mapnik'
+    provider: 'mapnik'        # OpenStreetMap (Free)
     api_key: ''
     zoom: 15
 
-# Extensions
-
+# -----------------------------------------------------------------------------
+# CMS & ICONS
+# -----------------------------------------------------------------------------
 extensions:
   decap_cms:
     branch: main
     local_backend: false
   academicons:
-    enable: true
+    enable: true              # Enables icons for Google Scholar, ORCID, ResearchGate
 
-# Citation style
-
+# -----------------------------------------------------------------------------
+# CITATIONS
+# -----------------------------------------------------------------------------
 publications:
   date_format: January 2006
-  citation_style: apa
+  citation_style: apa         # Standard for Speech & Hearing Sciences

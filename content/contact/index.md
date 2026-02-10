@@ -1,64 +1,60 @@
 ---
-date: "2022-10-24"
+# Contact Widget
+date: "2026-01-01"
 sections:
-- block: contact
-  content:
-    address:
-      city: Stanford
-      country: United States
-      country_code: US
-      postcode: "94305"
-      region: CA
-      street: 450 Serra Mall
-    appointment_url: https://calendly.com
-    autolink: true
-    coordinates:
-      latitude: "37.4275"
-      longitude: "-122.1697"
-    directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
-    email: test@example.org
-    form:
-      formspree:
-        id: null
-      netlify:
-        captcha: false
-      provider: netlify
-    office_hours:
-    - Monday 10:00 to 13:00
-    - Wednesday 09:00 to 10:00
-    phone: 888 888 88 88
-    text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus
-      augue non tempor egestas. Proin nisl nunc, dignissim in accumsan dapibus, auctor
-      ullamcorper neque. Quisque at elit felis. Vestibulum ante ipsum primis in faucibus
-      orci luctus et ultrices posuere cubilia curae; Aenean eget elementum odio. Cras
-      interdum eget risus sit amet aliquet. In volutpat, nisl ut fringilla dignissim,
-      arcu nisl suscipit ante, at accumsan sapien nisl eu eros.
-    title: Contact
-  design:
-    columns: "1"
-- block: markdown
-  content:
-    subtitle: ""
-    text: null
-    title: null
-  design:
-    background:
-      image:
-        filename: contact.jpg
-        filters:
-          brightness: 1
-        parallax: false
-        position: center
-        size: cover
-        text_color_light: true
-    columns: "1"
-    css_class: fullscreen
-    spacing:
-      padding:
-      - 20px
-      - "0"
-      - 20px
-      - "0"
+  - block: contact
+    content:
+      title: Get in Touch
+      text: |
+        The **Electric & Acoustic Hearing Lab** is located in the Health Sciences Building at the University of South Alabama. 
+        
+        We are actively recruiting motivated **PhD students** and looking for collaborators interested in psychoacoustics, auditory neuroscience, and cochlear implants. If you are interested in joining the lab or participating in a study, please reach out!
+      email: narslan@southalabama.edu
+      phone: '+1 (251) 460-6000'
+      address:
+        street: 5721 USA Drive North
+        city: Mobile
+        region: AL
+        postcode: '36688'
+        country: United States
+        country_code: US
+      coordinates:
+        latitude: '30.6966'
+        longitude: '-88.1786'
+      directions: Health Sciences Building (HAHN), Department of Speech Pathology and Audiology.
+      office_hours:
+        - 'Monday: 10:00 – 12:00'
+        - 'By Appointment'
+      appointment_url: ''
+      form:
+        provider: netlify
+        netlify:
+          captcha: true
+    design:
+      columns: '2'
+  - block: markdown
+    content:
+      title: 
+      subtitle: ''
+      text: ''
+    design:
+      columns: '1'
+      background:
+        image:
+          filename: contact.jpg
+          filters:
+            brightness: 0.5
+          parallax: false
+          position: center
+          size: cover
+          text_color_light: true
+      css_class: fullscreen
+      spacing:
+        padding:
+          - 20px
+          - '0'
+          - 20px
+          - '0'
 title: Contact
 type: landing
 ---

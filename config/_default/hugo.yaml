@@ -1,54 +1,68 @@
 theme: "theme-research-group"
-# Configuration of Hugo
-# Guide: https://docs.hugoblox.com/tutorial/
-# Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
-# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-title: Electric & Acoustic Hearing Lab # Website name
-baseURL: 'https://eahlab.com/' # Website URL
+# -----------------------------------------------------------------------------
+# SITE CONFIGURATION
+# -----------------------------------------------------------------------------
+title: Electric & Acoustic Hearing Lab
+baseURL: 'https://eahlab.com/'
+copyright: '© 2026 Electric & Acoustic Hearing Lab'  # Adds a professional footer
 
 ############################
-## LANGUAGE
+## LANGUAGE & TIMEZONE
 ############################
-
-defaultContentLanguage: en
+defaultContentLanguage: en       # More specific for US-based labs
 hasCJKLanguage: false
 defaultContentLanguageInSubdir: false
 removePathAccents: true
+timeZone: "America/Chicago"           # Ensures your post dates are correct for Alabama
 
 ############################
-## ADVANCED
+## IMAGING & MEDIA
 ############################
+imaging:
+  resampleFilter: lanczos
+  quality: 90                         # Increased from 75 to 90 for sharper diagrams/photos
+  anchor: smart
 
+############################
+## ADVANCED SETTINGS
+############################
 enableGitInfo: false
 summaryLength: 30
 pagination:
   pagerSize: 10
 enableEmoji: true
-enableRobotsTXT: true
+enableRobotsTXT: true                 # Essential for Google Scholar indexing
 footnotereturnlinkcontents: <sup>^</sup>
+
+# Files to ignore during build
 ignoreFiles: [\.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
+
+# URL Structure (Best not to touch these)
 permalinks:
   authors: '/author/:slug/'
   tags: '/tag/:slug/'
   categories: '/category/:slug/'
   publication_types: '/publication-type/:slug/'
 disableAliases: true
+
+# Netlify & Browser outputs
 outputs:
   home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
   section: [HTML, RSS]
-imaging:
-  resampleFilter: lanczos
-  quality: 75
-  anchor: smart
-timeout: 600000
+
+# Taxonomy (Categories)
 taxonomies:
   tag: tags
   category: categories
   publication_type: publication_types
   author: authors
+
+# Markup handling
 markup:
   _merge: deep
+
+# Related Content (Logic for "See also" at bottom of posts)
 related:
   threshold: 80
   includeNewer: true
@@ -58,6 +72,7 @@ related:
       weight: 100
     - name: categories
       weight: 70
+
 security:
   _merge: deep
 sitemap:

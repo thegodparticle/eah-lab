@@ -3,22 +3,31 @@
 #     desired widget in your `content/home/` folder.
 #   The weight parameter defines the order that the links will appear in.
 
+
+
+
 main:
-  - name: Tour
-    url: tour
+
+  - name: Home
+    url: '#about'
     weight: 10
+    
+  - name: Research
+    url: tour          # Renamed from "Tour" to "Research" for professionalism
+    weight: 20
+
+  - name: Publications
+    url: publication   # Moved up: This is your lab's currency
+    weight: 30
+
+  - name: Team
+    url: people        # Renamed from "People" to "Team" (feels more unified)
+    weight: 40
+
   - name: News
     url: post
-    weight: 20
-  - name: People
-    url: people
-    weight: 30
-  - name: Events
-    url: event
-    weight: 40
-  - name: Publications
-    url: publication
     weight: 50
+    
   - name: Contact
     url: contact
     weight: 60

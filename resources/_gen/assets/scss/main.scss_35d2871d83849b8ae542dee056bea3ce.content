@@ -7211,7 +7211,7 @@ a.text-dark:hover, a.text-dark:focus {
  *  Hugo Blox Builder's Core Style
  **************************************************/
 html {
-  font-family: "", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16.17px;
   color: rgba(0, 0, 0, 0.8);
   line-height: 1.65; }
@@ -7293,7 +7293,7 @@ ul.task-list li input[type='checkbox'] {
 
 /* Navigation bar text */
 .navbar-light {
-  font-family: "", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   line-height: 1.25;
   text-rendering: optimizelegibility; }
@@ -7305,7 +7305,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
@@ -7360,7 +7360,7 @@ a:focus {
 
 pre,
 code {
-  font-family: "", monospace; }
+  font-family: "Roboto Mono", monospace; }
 
 pre {
   margin: 0 0 1rem;
@@ -9103,7 +9103,7 @@ html[dir='rtl'] body {
 
 .section-subheading {
   font-size: 1.25rem;
-  font-family: "", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   margin-top: 1rem;
   margin-bottom: 0.5rem; }
@@ -9730,8 +9730,504 @@ div.chart {
   margin-bottom: 1rem;
   overflow-x: auto; }
 
-.universal-wrapper h1 {
+/* ==========================================================================
+   1. Global Variables & Base Styles
+   ========================================================================== */
+:root {
+  /* Color Palette - Light Mode */
+  --color-primary: #007AFF;
+  /* Apple's signature blue for interactive elements */
+  --color-primary-dark: #0056B3;
+  /* A darker blue for hover states */
+  --color-text: #1d1d1f;
+  /* A deep, near-black for high readability. */
+  --color-text-muted: #86868b;
+  /* A lighter gray for secondary text */
+  --color-background: #f5f5f7;
+  /* A soft, off-white, used in Apple's interfaces. */
+  --color-border: #d2d2d7;
+  /* A light gray for subtle borders */
+  --color-shadow: rgba(0, 0, 0, 0.05);
+  /* A softer shadow */
+  /* Typography */
+  --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-size-base: 18px;
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 1.5rem;
+  --font-size-h3: 1.2rem;
+  --line-height-base: 1.6;
+  /* Sizing & Spacing */
+  --border-radius: 8px;
+  /* Slightly more rounded corners for a modern feel */
+  --spacing-unit: 1rem;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transition-speed: 0.3s; }
+
+body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* ==========================================================================
+   2. Typography & Headings
+   ========================================================================== */
+h1, h2, h3 {
+  font-weight: 600;
+  /* Slightly bolder for better hierarchy */
+  margin-top: calc(var(--spacing-unit) * 1.5);
+  margin-bottom: var(--spacing-unit); }
+
+h1 {
+  font-size: var(--font-size-h1); }
+
+h2 {
+  font-size: var(--font-size-h2); }
+
+h3 {
+  font-size: var(--font-size-h3); }
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease; }
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline; }
+
+/* ==========================================================================
+   3. Layout & Containers
+   ========================================================================== */
+.article-container {
+  max-width: 850px;
+  padding: 0 var(--spacing-unit);
+  margin: 0 auto; }
+
+.background-img {
+  pointer-events: none;
+  cursor: default; }
+
+/* ==========================================================================
+   4. Article & Content Styling
+   ========================================================================== */
+.article {
+  text-align: left; }
+
+.article .pt-3 h1 {
+  text-align: center;
+  font-size: var(--font-size-h1); }
+
+.article-style h1 {
+  font-size: var(--font-size-h2); }
+
+.article-style h1:after {
+  content: '';
+  display: block;
+  margin-top: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: none;
+  /* Removed for a cleaner look */ }
+
+.page-subtitle {
+  font-size: 1.1rem;
+  /* Slightly larger for better readability */
+  text-align: center;
+  margin-bottom: var(--spacing-unit);
+  color: var(--color-text-muted); }
+
+/* ==========================================================================
+   5. Components (Buttons, Cards, Navigation)
+   ========================================================================== */
+/* --- Buttons --- */
+.btn-download::before {
+  font-family: "FontAwesome";
+  content: "\f019\00a0"; }
+
+.btn-copy-code {
+  color: #fff;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease; }
+
+.btn-copy-code:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow); }
+
+.btn-copy-code::before {
+  font-family: "FontAwesome";
+  content: "\f0c5\00a0"; }
+
+.btn-toolbar .btn.active {
+  box-shadow: 0 0 0 3px var(--color-primary) !important;
+  /* Cleaner active state */ }
+
+/* --- Cards --- */
+.card {
+  transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius); }
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow); }
+
+.card .init-hidden p {
+  max-height: 0;
+  transition: max-height 0.8s ease-out;
+  overflow: hidden;
+  margin-bottom: 0 !important; }
+
+.card:hover .init-hidden p {
+  max-height: 1000px;
+  /* Large value to ensure content fits */
+  transition: max-height 1s ease-in; }
+
+/* --- Navigation & Links --- */
+.nav-link {
+  padding: 10px 0;
+  margin: 10px 0; }
+
+#TableOfContents li a {
+  line-height: 1.5; }
+
+/* ==========================================================================
+   6. Page-Specific Sections (#about, #profile, #accomplishments)
+   ========================================================================== */
+/* --- About & Profile Section --- */
+#profile .network-icon {
+  margin-top: 15px;
+  padding: 5px; }
+
+/* --- Accomplishments Section --- */
+#accomplishments .card-title {
+  font-size: 1.4rem; }
+
+#accomplishments .card-subtitle {
+  font-size: 1.2rem; }
+
+/* --- Experience Section --- */
+.flex-w-experience-image-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px; }
+
+.experience-image {
+  max-width: 60px; }
+
+/* ==========================================================================
+   7. Animations & Keyframes
+   ========================================================================== */
+/* Keyframes remain the same */
+/* ==========================================================================
+   8. Portfolio / Project Gallery
+   ========================================================================== */
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: calc(var(--spacing-unit) * 1.5);
+  padding: var(--spacing-unit) 0; }
+
+.project-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 5px var(--color-shadow);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; }
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow); }
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block; }
+
+.project-card-content {
+  padding: var(--spacing-unit); }
+
+.project-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: calc(var(--spacing-unit) / 2); }
+
+.project-card-description {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.5; }
+
+.project-card-tags {
+  margin-top: var(--spacing-unit); }
+
+.project-card-tag {
+  display: inline-block;
+  background-color: #eef0f2;
+  color: var(--color-text-muted);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem; }
+
+/* ==========================================================================
+   9. Contact Form
+   ========================================================================== */
+.contact-form {
+  max-width: 700px;
+  margin: calc(var(--spacing-unit) * 2) auto;
+  padding: calc(var(--spacing-unit) * 2);
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow); }
+
+.form-group {
+  margin-bottom: calc(var(--spacing-unit) * 1.5); }
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem; }
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background-color: #f5f5f7;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease; }
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25); }
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 150px; }
+
+.btn-submit {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  text-align: center;
+  transition: background-color var(--transition-speed) ease; }
+
+.btn-submit:hover {
+  background-color: var(--color-primary-dark); }
+
+/* ==========================================================================
+   10. Footer
+   ========================================================================== */
+.site-footer {
+  color: var(--color-text-muted);
+  padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+  margin-top: calc(var(--spacing-unit) * 3);
+  text-align: center;
+  border-top: 1px solid var(--color-border); }
+
+.footer-content {
+  max-width: 850px;
+  margin: 0 auto; }
+
+.footer-social-links a {
+  color: var(--color-text-muted);
+  font-size: 1.5rem;
+  margin: 0 0.75rem;
+  transition: color var(--transition-speed) ease; }
+
+.footer-social-links a:hover {
+  color: var(--color-primary); }
+
+.footer-copyright {
+  margin-top: var(--spacing-unit);
+  font-size: 0.9rem; }
+
+/* ==========================================================================
+   11. Utility Classes & Media Queries
+   ========================================================================== */
+.text-center {
   text-align: center; }
 
-.cta-group {
-  justify-content: center; }
+.mt-1 {
+  margin-top: var(--spacing-unit); }
+
+.mt-2 {
+  margin-top: calc(var(--spacing-unit) * 2); }
+
+.mb-1 {
+  margin-bottom: var(--spacing-unit); }
+
+.mb-2 {
+  margin-bottom: calc(var(--spacing-unit) * 2); }
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 16px;
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.3rem; }
+  .article-container {
+    padding: 0 calc(var(--spacing-unit) * 0.75); }
+  .contact-form {
+    padding: var(--spacing-unit); } }
+
+/* ==========================================================================
+   12. Accessibility Improvements
+   ========================================================================== */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px rgba(0, 122, 255, 0.3); }
+
+:focus:not(:focus-visible) {
+  outline: none; }
+
+/* ==========================================================================
+   13. Dark Mode Theme
+   ========================================================================== */
+.dark-mode {
+  --color-primary: #0A84FF;
+  --color-primary-dark: #3395ff;
+  --color-text: #f5f5f7;
+  --color-text-muted: #8d8d92;
+  --color-background: #000000;
+  --color-border: #3a3a3c;
+  --color-shadow: rgba(0, 0, 0, 0.2);
+  --card-background: #1c1c1e;
+  --form-background: #1c1c1e;
+  --footer-background: #1c1c1e;
+  --tag-background: #3a3a3c; }
+
+/* Apply dark mode styles */
+.dark-mode body,
+.dark-mode .project-card,
+.dark-mode .contact-form,
+.dark-mode .card {
+  background-color: var(--color-background);
+  color: var(--color-text); }
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3 {
+  color: var(--color-text); }
+
+.dark-mode a {
+  color: var(--color-primary); }
+
+.dark-mode a:hover {
+  color: var(--color-primary-dark); }
+
+.dark-mode .project-card,
+.dark-mode .contact-form,
+.dark-mode .card {
+  background-color: var(--card-background);
+  border-color: var(--color-border); }
+
+.dark-mode .project-card-tag {
+  background-color: var(--tag-background);
+  color: var(--color-text-muted); }
+
+.dark-mode .form-control {
+  background-color: var(--form-background);
+  border-color: var(--color-border);
+  color: var(--color-text); }
+
+.dark-mode .form-control::placeholder {
+  color: var(--color-text-muted); }
+
+.dark-mode .form-control:focus {
+  background-color: var(--form-background);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3); }
+
+.dark-mode .site-footer {
+  background-color: transparent;
+  border-top-color: var(--color-border); }
+
+/* Smooth transition for theme changes */
+body, .project-card, .contact-form, .site-footer, .form-control, .card {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease; }
+
+/* ==========================================================================
+   14. Print Styles
+   ========================================================================== */
+@media print {
+  /* Hide non-essential elements */
+  header,
+  footer,
+  nav,
+  .btn-copy-code,
+  .mouse-icon,
+  .contact-form,
+  .project-gallery,
+  .site-footer {
+    display: none !important; }
+  /* Reset base styles for printing */
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: #000;
+    background: #fff; }
+  .article-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border: none; }
+  /* Ensure links are visible and identifiable when printed */
+  a {
+    color: #000 !important;
+    text-decoration: underline !important; }
+  /* Show the URL of links in parentheses after the link text */
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+  /* Avoid page breaks inside articles or cards */
+  .article, .card {
+    page-break-inside: avoid; }
+  h1, h2, h3 {
+    page-break-after: avoid; } }
+
+.card-simple,
+.card-course,
+.pub-list-item {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid transparent;
+  /* Prevents layout shift on hover */ }
+
+.card-simple:hover,
+.pub-list-item:hover {
+  transform: translateY(-3px);
+  /* Moves up slightly */
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  /* Soft shadow */
+  border: 1px solid rgba(0, 0, 0, 0.05); }
