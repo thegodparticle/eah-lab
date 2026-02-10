@@ -73,7 +73,7 @@ social:
 
 # User groups
 user_groups:
-  - Researchers
+  - Faculty
 ---
 
 Niyazi Ömer Arslan is an Assistant Professor in the Department of Speech Pathology and Audiology at the University of South Alabama and the director of the **Electric & Acoustic Hearing Lab**.

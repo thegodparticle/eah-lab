@@ -7,8 +7,7 @@ sections:
     sort_by: Params.last_name
     title: Meet the Team
     user_groups:
-    - Principal Investigators
-    - Researchers
+    - Faculty
     - Grad Students
     - Administration
     - Visitors
@@ -17,6 +16,7 @@ sections:
     show_interests: false
     show_role: true
     show_social: true
+    columns: "2"
 title: People
 type: landing
 ---

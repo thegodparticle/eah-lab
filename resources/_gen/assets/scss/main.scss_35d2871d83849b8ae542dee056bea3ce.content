@@ -10231,3 +10231,57 @@ body, .project-card, .contact-form, .site-footer, .form-control, .card {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   /* Soft shadow */
   border: 1px solid rgba(0, 0, 0, 0.05); }
+
+/* ==========================================================================
+   FIX: PUBLICATION FILTER TOOLBAR (UPDATED)
+   ========================================================================== */
+/* 1. Container spacing */
+.form-row {
+  margin-bottom: 2rem !important;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  /* This ensures they align vertically in the center */
+  gap: 1rem; }
+
+/* 2. Column sizing */
+.col-lg-6, .col-lg-3 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  flex: 1 1 auto;
+  min-width: 200px; }
+
+/* 3. UNIFIED HEIGHT FIX (The Solution) */
+/* We target both the Search Input and the Dropdown Selects */
+.form-row .form-control {
+  height: 50px !important;
+  /* Forces strict equality */
+  min-height: 50px !important;
+  /* Prevents shrinking */
+  max-height: 50px !important;
+  /* Prevents growing */
+  line-height: normal;
+  /* Centers text vertically */
+  padding-top: 0 !important;
+  /* Remove vertical padding conflicts */
+  padding-bottom: 0 !important;
+  /* Remove vertical padding conflicts */
+  display: flex;
+  /* Helps with alignment */
+  align-items: center; }
+
+/* Specific fix for the text inside the inputs so it's not squashed */
+input.form-control {
+  padding-left: 1rem !important; }
+
+select.form-control {
+  padding-left: 1rem !important;
+  padding-right: 2.5rem !important;
+  /* Room for the arrow */ }
+
+/* 4. Search Icon Alignment */
+.search-icon {
+  top: 50% !important;
+  transform: translateY(-50%);
+  right: 15px !important;
+  /* Ensures icon doesn't hit the text */ }

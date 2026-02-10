@@ -8,7 +8,7 @@
 # -----------------------------------------------------------------------------
 appearance:
   theme_day: minimal          # Clean, white, high-contrast professional look
-  theme_night: minimal        # Keeps it consistent (or use 'navy' for dark mode)
+  theme_night: ""        # Keeps it consistent (or use 'navy' for dark mode)
   font: rose-pine             # A modern, elegant font pairing (or try 'minimal')
   font_size: L                # Large text is modern and accessible
 
@@ -40,7 +40,7 @@ header:
     align: r                  # Right-aligned links look more modern
     show_logo: true           # Ensure you have a logo.png in assets/media/
     show_language: false
-    show_day_night: true      # Toggles are popular and user-friendly
+    show_day_night: false      # Toggles are popular and user-friendly
     show_search: true
     highlight_active_link: true
 
