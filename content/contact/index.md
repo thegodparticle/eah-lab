@@ -74,7 +74,7 @@ sections:
       title: Visit the Lab
       text: |
         The **Electric & Acoustic Hearing Lab** is located in the **Health Sciences Building (HAHN)** at the University of South Alabama.
-      email: narslan@southalabama.edu
+      email: niyaziarslan@southalabama.edu
       phone: '+1 (251) 460-6000'
       address:
         street: 5721 USA Drive North
@@ -88,7 +88,6 @@ sections:
         longitude: '-88.1786'
       directions: Health Sciences Building (HAHN), Department of Speech Pathology and Audiology.
       office_hours:
-        - 'Monday: 10:00 – 12:00'
         - 'By Appointment'
       appointment_url: ''
       form:

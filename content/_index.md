@@ -227,104 +227,87 @@ sections:
 
 
 # -----------------------------------------------------------------------------
-  # 4. CTA: Get Involved (DYNAMIC UPGRADE)
-  #    Added: Gentle floating card + Pulsing button + Staggered text entry
+  # 4. CTA: Get Involved (HOLOGRAPHIC UPGRADE + FIX)
+  #    Fixed: Button visibility bug.
+  #    Added: Moving gradient border & soft background glow.
+  #    Refined: HTML structure flattened for Hugo compatibility.
   # -----------------------------------------------------------------------------
   - block: markdown
     content:
       text: |
         <style>
-          /* 1. Define Animations */
-          @keyframes float-ambient {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-          }
-          @keyframes pulse-glow {
-            0% { box-shadow: 0 10px 30px rgba(0, 122, 255, 0.25); }
-            50% { box-shadow: 0 15px 50px rgba(0, 122, 255, 0.5); transform: scale(1.02); }
-            100% { box-shadow: 0 10px 30px rgba(0, 122, 255, 0.25); }
-          }
-          @keyframes slideUpFade {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-
-          /* 2. Apply Animations */
-          .cta-card-dynamic {
-            /* Gentle float makes it feel "alive" */
-            animation: float-ambient 6s ease-in-out infinite; 
-            /* Slide up entrance */
-            animation: slideUpFade 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; 
-            opacity: 0; /* Hidden before animation starts */
-          }
-
-          .cta-btn-dynamic {
-            /* Rhythmic pulse to grab attention */
-            animation: pulse-glow 3s infinite ease-in-out;
-          }
-          
-          /* Pause pulse on hover so the user feels control */
-          .cta-btn-dynamic:hover {
-            animation: none; 
-            transform: scale(1.08) translateY(-3px) !important;
-            box-shadow: 0 20px 60px rgba(0, 122, 255, 0.6) !important;
-          }
-
-          /* Text Staggering */
-          .cta-content { opacity: 0; animation: slideUpFade 0.8s ease-out forwards; }
-          .delay-1 { animation-delay: 0.2s; }
-          .delay-2 { animation-delay: 0.4s; }
+        /* 1. Define Animations */
+        @keyframes float-ambient {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); }
+        100% { transform: translateY(0px); }
+        }
+        @keyframes pulse-glow {
+        0% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0.4); }
+        70% { box-shadow: 0 0 0 15px rgba(0, 122, 255, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0); }
+        }
+        @keyframes slideUpFade {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes border-rotate {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+        }
+        /* 2. Container Animations */
+        .cta-wrapper {
+        opacity: 0; 
+        animation: slideUpFade 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        .cta-floater {
+        animation: float-ambient 6s ease-in-out infinite;
+        }
+        /* 3. The Holographic Card */
+        .cta-card-holo {
+        position: relative;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(50px) saturate(180%);
+        -webkit-backdrop-filter: blur(50px) saturate(180%);
+        border-radius: 40px;
+        padding: 80px 40px;
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+        overflow: hidden;
+        box-shadow: 0 40px 100px rgba(0, 122, 255, 0.15), 0 10px 30px rgba(0,0,0,0.05);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        }
+        /* 4. The Button (BUG FIXED) */
+        .cta-btn-holo {
+        display: inline-block;
+        background: linear-gradient(135deg, #007AFF 0%, #0056b3 100%);
+        color: #ffffff;
+        padding: 22px 60px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        animation: pulse-glow 2s infinite;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .cta-btn-holo:hover {
+        animation-play-state: paused; 
+        transform: scale(1.05) translateY(-3px);
+        box-shadow: 0 20px 50px rgba(0, 122, 255, 0.5);
+        }
         </style>
-
-        <div class="cta-card-dynamic" style="
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(50px) saturate(180%);
-          -webkit-backdrop-filter: blur(50px) saturate(180%);
-          border: 1px solid rgba(255,255,255,1);
-          border-radius: 40px;
-          padding: 80px 40px;
-          max-width: 900px;
-          margin: 0 auto;
-          text-align: center;
-          box-shadow: 0 30px 80px rgba(0,0,0,0.08);">
-
-          <h2 class="cta-content" style="
-            color: #1d1d1f; 
-            font-size: clamp(2.5rem, 4vw, 3.5rem); 
-            font-weight: 800; 
-            letter-spacing: -0.03em; 
-            margin-bottom: 25px; 
-            line-height: 1.1;">
-            Ready to shape the future?
-          </h2>
-
-          <p class="cta-content delay-1" style="
-            font-size: clamp(1.2rem, 2vw, 1.5rem); 
-            color: #48484a; 
-            line-height: 1.6; 
-            margin-bottom: 50px; 
-            font-weight: 500; 
-            max-width: 750px; 
-            margin-left: auto; 
-            margin-right: auto;">
-            We are actively recruiting <strong style="color: #007AFF;">PhD Students</strong> and <strong style="color: #FF2D55;">Study Participants</strong> to join our research efforts.
-          </p>
-
-          <a href="./contact/" class="cta-content delay-2 cta-btn-dynamic" style="
-            display: inline-block;
-            background: linear-gradient(135deg, #007AFF 0%, #0056b3 100%);
-            color: #ffffff;
-            padding: 22px 55px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
-            Get Involved &rarr;
-          </a>
-
+        <div class="cta-wrapper">
+        <div class="cta-floater">
+        <div class="cta-card-holo">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #007AFF, #FF2D55, #007AFF); background-size: 200% 200%; animation: border-rotate 4s linear infinite;"></div>
+        <p style="font-size: clamp(1.2rem, 2vw, 1.5rem); color: #48484a; line-height: 1.6; margin-bottom: 50px; font-weight: 500; max-width: 750px; margin-left: auto; margin-right: auto;">We are actively recruiting <strong style="color: #007AFF;">PhD Students</strong> and <strong style="color: #FF2D55;">Study Participants</strong> to join our research efforts.</p>
+        <a href="./contact/" class="cta-btn-holo">Get Involved &rarr;</a>
+        </div>
+        </div>
         </div>
     design:
       columns: "1"
