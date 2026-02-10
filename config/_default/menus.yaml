@@ -13,7 +13,7 @@ main:
     weight: 10
     
   - name: Research
-    url: tour          # Renamed from "Tour" to "Research" for professionalism
+    url: research          # Renamed from "Tour" to "Research" for professionalism
     weight: 20
 
   - name: Publications
