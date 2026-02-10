@@ -28,6 +28,6 @@ main:
     url: post
     weight: 50
     
-  - name: Contact
+  - name: Join Us
     url: contact
     weight: 60
