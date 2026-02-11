@@ -320,11 +320,11 @@ sections:
         <div class="research-hero-content">
           <div class="research-hero-label">Research Focus</div>
           <h1 class="research-hero-title">
-            Why Do Cochlear Implants Work <em>Brilliantly</em> for Some — and <em>Poorly</em> for Others?
+            Why Do Cochlear Implants Work <em>Brilliantly</em> for Some and <em>Poorly</em> for Others?
           </h1>
           <div class="research-hero-divider"></div>
           <p class="research-hero-desc">
-            Two patients. Same device. Same surgery. Vastly different outcomes. One understands speech effortlessly; the other struggles even in quiet rooms. We're working to understand <strong>why</strong> — and how to close this gap.
+            Two patients. Same device. Same surgery. Vastly different outcomes. One understands speech effortlessly; the other struggles even in quiet rooms. We're working to understand <strong>why</strong> and how to close this gap.
           </p>
         </div>
     design:
@@ -346,7 +346,7 @@ sections:
             <p class="question-label accent">Neural Health</p>
             <h2 class="question-heading">How much does the condition of the auditory nerve limit what a cochlear implant user can hear?</h2>
             <p class="question-text">
-              Before sound reaches the brain, it must pass through the auditory nerve — and in many CI users, these nerve fibers have <strong>degenerated</strong>. We're developing methods to reliably measure neural health at individual electrode sites and determine how this degeneration constrains what patients can perceive.
+              Before sound reaches the brain, it must pass through the auditory nerve and in many CI users, these nerve fibers have <strong>degenerated</strong>. We're developing methods to reliably measure neural health at individual electrode sites and determine how this degeneration constrains what patients can perceive.
             </p>
             <ul class="question-approaches accent">
               <li>Objective measures of neural survival patterns</li>
@@ -368,13 +368,13 @@ sections:
     content:
       text: |
         <div class="question-card reversed">
-          <div class="question-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop');"></div>
+          <div class="question-image" style="background-image: url('https://images.unsplash.com/photo-1598800489147-44a63d7b5016?q=80&w=2670&auto=format&fit=crop');"></div>
           <div class="question-content">
             <div class="question-number">02</div>
             <p class="question-label coral">Personalized Stimulation</p>
             <h2 class="question-heading">Can we tailor electrical stimulation to each patient's unique auditory system?</h2>
             <p class="question-text">
-              Current cochlear implants use essentially the same stimulation approach for everyone — but every patient's auditory nerve is different. We're investigating how to <strong>personalize</strong> stimulation strategies based on individual patterns of neural health, potentially improving outcomes without changing the hardware.
+              Current cochlear implants use essentially the same stimulation approach for everyone but every patient's auditory nerve is different. We're investigating how to <strong>personalize</strong> stimulation strategies based on individual patterns of neural health, potentially improving outcomes without changing the hardware.
             </p>
             <ul class="question-approaches coral">
               <li>Site-specific stimulation parameters</li>
@@ -402,7 +402,7 @@ sections:
             <p class="question-label sage">Perceptual Boundaries</p>
             <h2 class="question-heading">What are the fundamental limits of hearing with electrical stimulation?</h2>
             <p class="question-text">
-              Music sounds flat. Voices blur together in noise. These struggles trace back to <strong>spectral resolution</strong> — the ability to distinguish different frequencies. We use rigorous psychophysical methods to map the precise boundaries of perception in CI users, identifying where the bottlenecks lie and what might be done about them.
+              Music sounds flat. Voices blur together in noise. These struggles trace back to <strong>spectral resolution</strong>. We use rigorous psychophysical methods to map the precise boundaries of perception in CI users, identifying where the bottlenecks lie and what might be done about them.
             </p>
             <ul class="question-approaches sage">
               <li>Psychophysical measurement of pitch sensitivity</li>
@@ -426,9 +426,7 @@ sections:
         <div class="research-cta-content">
           <span class="research-cta-label">Our Work</span>
           <h2 class="research-cta-title">Explore Our Publications</h2>
-          <p class="research-cta-desc">
-            See how we're addressing these questions through peer-reviewed research.
-          </p>
+
           <a href="../publication/" class="research-cta-btn">
             View Publications →
           </a>
