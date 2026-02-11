@@ -12,3 +12,5 @@ options(
 
 # I removed the "fix Hugo version" line so it uses the latest one.
 # 
+
+options(blogdown.hugo.version = "0.155.3")

@@ -10,7 +10,7 @@
   publish = "public"
 
 [build.environment]
-  HUGO_VERSION = "0.139.0"
+  HUGO_VERSION = "0.155.3"
   HUGO_ENABLEGITINFO = "false"
   NODE_VERSION = "20"
 
