@@ -3,317 +3,552 @@ title: Home
 type: landing
 date: "2026-01-01"
 
+design:
+  css_class: "eahl-landing"
+
 sections:
   # -----------------------------------------------------------------------------
-  # 1. HERO: The "Hook"
-  #    ADDED: <style> block with @keyframes for entrance animations
-  # -----------------------------------------------------------------------------
-  - block: hero
-    content:
-      title: ""
-      text: |
-        <style>
-          /* Define Animations */
-          @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-          }
-          
-          /* Animation Classes */
-          .anim-entry {
-            opacity: 0; /* Hidden initially */
-            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-          }
-          .delay-1 { animation-delay: 0.2s; }
-          .delay-2 { animation-delay: 0.4s; }
-          
-          /* Glass Container Hover */
-          .hero-glass {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-          }
-          .hero-glass:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 50px 120px rgba(0,0,0,0.6) !important;
-          }
-        </style>
-
-        <div class="hero-glass anim-entry" style="
-          background: rgba(28, 28, 30, 0.75);
-          backdrop-filter: blur(50px) saturate(180%);
-          -webkit-backdrop-filter: blur(50px) saturate(180%);
-          padding: 60px 30px;
-          border-radius: 32px;
-          border: 1px solid rgba(255,255,255,0.12);
-          box-shadow: 0 40px 100px rgba(0,0,0,0.5);
-          max-width: 900px;
-          margin: 0 auto;
-          text-align: center;">
-
-          <h1 class="anim-entry delay-1" style="
-            color: #FFFFFF;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 25px;">
-            Electric & Acoustic <br>
-            <span style="
-              background: linear-gradient(270deg, #2997FF, #60efff, #FF2D55, #2997FF);
-              background-size: 300% 300%;
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              filter: drop-shadow(0 0 30px rgba(41, 151, 255, 0.4));
-              animation: gradientFlow 6s ease infinite;">
-              Hearing Lab
-            </span>
-          </h1>
-
-          <p class="anim-entry delay-2" style="
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            color: #E5E5EA;
-            line-height: 1.6;
-            font-weight: 400;
-            margin-bottom: 0;
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;">
-            Investigating the neural code of sound to improve auditory perception for cochlear implant users at the <strong style="color: #fff;">University of South Alabama</strong>.
-          </p>
-
-        </div>
-    design:
-      columns: "1"
-      css_class: "hero-text-center"
-      spacing:
-        padding: ["120px", "0", "120px", "0"]
-      css_style: "background-image: url('https://images.unsplash.com/photo-1655931546508-9f948f52e079?q=80&w=1740&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed;"
-
-  # -----------------------------------------------------------------------------
-  # 2. PILLARS: What We Do
+  # CUSTOM STYLES (as a blank block at top)
   # -----------------------------------------------------------------------------
   - block: markdown
     content:
-      title: ""
-      subtitle: ""
       text: |
         <style>
-          /* Card Animations */
-          .pillar-card {
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 50px 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
-            border: 1px solid rgba(0,0,0,0.05);
-            text-align: center;
-            opacity: 0; /* Start hidden for animation */
-            animation: fadeInUp 0.8s ease-out forwards;
-          }
-          
-          /* Lift Effect */
-          .pillar-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-            border-color: rgba(0,0,0,0);
-          }
-          
-          /* Icon Container */
-          .icon-box {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 30px auto;
-            font-size: 2rem;
-            transition: transform 0.3s ease;
-          }
-          
-          /* Icon Rotate on Hover */
-          .pillar-card:hover .icon-box {
-            transform: scale(1.1) rotate(5deg);
-          }
-
-          /* Staggered Delays for Entrance */
-          .delay-100 { animation-delay: 0.2s; }
-          .delay-200 { animation-delay: 0.4s; }
-          .delay-300 { animation-delay: 0.6s; }
+        /* ===== GLOBAL TYPOGRAPHY ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap');
+        
+        :root {
+          --eahl-navy: #0a1628;
+          --eahl-navy-light: #162544;
+          --eahl-cream: #faf8f5;
+          --eahl-accent: #4a90a4;
+          --eahl-coral: #e07a5f;
+          --eahl-sage: #6b8f71;
+          --eahl-text: #374151;
+          --eahl-text-light: #6b7280;
+        }
+        
+        .eahl-landing h1, .eahl-landing h2, .eahl-landing h3 {
+          font-family: 'Playfair Display', Georgia, serif !important;
+        }
+        
+        .eahl-landing p, .eahl-landing span, .eahl-landing a {
+          font-family: 'Source Sans 3', -apple-system, sans-serif !important;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .eahl-hero-section {
+          background: linear-gradient(135deg, var(--eahl-navy) 0%, var(--eahl-navy-light) 100%) !important;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .eahl-hero-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 50%;
+          height: 100%;
+          background: radial-gradient(ellipse at 70% 50%, rgba(74, 144, 164, 0.15) 0%, transparent 60%);
+          pointer-events: none;
+        }
+        
+        .eahl-hero-content {
+          position: relative;
+          z-index: 2;
+          max-width: 900px;
+          margin: 0 auto;
+          text-align: center;
+          padding: 40px 20px;
+        }
+        
+        .eahl-hero-label {
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--eahl-accent);
+          margin-bottom: 32px;
+        }
+        
+        .eahl-hero-label::before,
+        .eahl-hero-label::after {
+          content: '';
+          width: 40px;
+          height: 1px;
+          background: var(--eahl-accent);
+          opacity: 0.5;
+        }
+        
+        .eahl-hero-title {
+          font-size: clamp(2.5rem, 6vw, 4rem) !important;
+          font-weight: 500 !important;
+          color: #ffffff !important;
+          line-height: 1.15 !important;
+          margin-bottom: 12px !important;
+          letter-spacing: -0.02em;
+        }
+        
+        .eahl-hero-title-accent {
+          display: block;
+          font-style: italic;
+          color: var(--eahl-accent) !important;
+        }
+        
+        .eahl-hero-subtitle {
+          font-size: 1.25rem;
+          color: rgba(255, 255, 255, 0.85);
+          line-height: 1.7;
+          max-width: 600px;
+          margin: 0 auto 24px auto;
+          font-weight: 400;
+        }
+        
+        .eahl-hero-affiliation {
+          font-size: 0.95rem;
+          color: rgba(255, 255, 255, 0.6);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+        }
+        
+        .eahl-hero-affiliation::before {
+          content: '◆';
+          font-size: 0.4rem;
+          color: var(--eahl-coral);
+        }
+        
+        /* ===== WAVEFORM ANIMATION ===== */
+        .eahl-waveform {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+          margin: 48px auto 0 auto;
+          height: 60px;
+        }
+        
+        .eahl-wave-bar {
+          width: 3px;
+          height: 10px;
+          background: linear-gradient(180deg, var(--eahl-accent), rgba(74, 144, 164, 0.4));
+          border-radius: 3px;
+          animation: eahl-wave 1.2s ease-in-out infinite;
+        }
+        
+        .eahl-wave-bar:nth-child(1) { animation-delay: 0s; }
+        .eahl-wave-bar:nth-child(2) { animation-delay: 0.1s; }
+        .eahl-wave-bar:nth-child(3) { animation-delay: 0.2s; }
+        .eahl-wave-bar:nth-child(4) { animation-delay: 0.3s; }
+        .eahl-wave-bar:nth-child(5) { animation-delay: 0.4s; }
+        .eahl-wave-bar:nth-child(6) { animation-delay: 0.5s; }
+        .eahl-wave-bar:nth-child(7) { animation-delay: 0.6s; }
+        .eahl-wave-bar:nth-child(8) { animation-delay: 0.5s; }
+        .eahl-wave-bar:nth-child(9) { animation-delay: 0.4s; }
+        .eahl-wave-bar:nth-child(10) { animation-delay: 0.3s; }
+        .eahl-wave-bar:nth-child(11) { animation-delay: 0.2s; }
+        .eahl-wave-bar:nth-child(12) { animation-delay: 0.1s; }
+        .eahl-wave-bar:nth-child(13) { animation-delay: 0s; }
+        
+        @keyframes eahl-wave {
+          0%, 100% { height: 10px; }
+          50% { height: 40px; }
+        }
+        
+        /* ===== RESEARCH SECTION ===== */
+        .eahl-research-section {
+          background: var(--eahl-cream) !important;
+        }
+        
+        .eahl-section-header {
+          text-align: center;
+          margin-bottom: 64px;
+        }
+        
+        .eahl-section-number {
+          font-family: 'Playfair Display', serif;
+          font-size: 0.85rem;
+          color: var(--eahl-text-light);
+          margin-bottom: 12px;
+          display: block;
+        }
+        
+        .eahl-section-title {
+          font-size: clamp(2rem, 4vw, 2.75rem) !important;
+          font-weight: 500 !important;
+          color: var(--eahl-navy) !important;
+          margin-bottom: 16px !important;
+          letter-spacing: -0.02em;
+        }
+        
+        .eahl-section-divider {
+          width: 60px;
+          height: 3px;
+          background: var(--eahl-coral);
+          margin: 0 auto;
+          border-radius: 2px;
+        }
+        
+        .eahl-pillars-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 32px;
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+        
+        .eahl-pillar-card {
+          background: #ffffff;
+          border: 1px solid #e5e7eb;
+          border-radius: 16px;
+          padding: 40px 32px;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .eahl-pillar-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: var(--card-color);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.3s ease;
+        }
+        
+        .eahl-pillar-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 20px 40px rgba(10, 22, 40, 0.08);
+          border-color: transparent;
+        }
+        
+        .eahl-pillar-card:hover::before {
+          transform: scaleX(1);
+        }
+        
+        .eahl-pillar-icon {
+          width: 52px;
+          height: 52px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 24px;
+          font-size: 1.4rem;
+          background: var(--icon-bg);
+          color: var(--icon-color);
+        }
+        
+        .eahl-pillar-title {
+          font-size: 1.35rem !important;
+          font-weight: 500 !important;
+          color: var(--eahl-navy) !important;
+          margin-bottom: 12px !important;
+        }
+        
+        .eahl-pillar-desc {
+          font-size: 1rem;
+          color: var(--eahl-text-light);
+          line-height: 1.7;
+          margin: 0;
+        }
+        
+        /* ===== MISSION SECTION ===== */
+        .eahl-mission-section {
+          background: var(--eahl-navy) !important;
+          position: relative;
+        }
+        
+        .eahl-mission-content {
+          max-width: 850px;
+          margin: 0 auto;
+          text-align: center;
+        }
+        
+        .eahl-mission-quote {
+          font-size: clamp(1.5rem, 3.5vw, 2.25rem) !important;
+          font-weight: 400 !important;
+          color: #ffffff !important;
+          line-height: 1.4 !important;
+          margin-bottom: 32px !important;
+        }
+        
+        .eahl-mission-quote em {
+          font-style: italic;
+          color: var(--eahl-accent);
+        }
+        
+        .eahl-mission-body {
+          font-size: 1.1rem;
+          color: rgba(255, 255, 255, 0.8);
+          line-height: 1.8;
+          margin-bottom: 40px;
+        }
+        
+        .eahl-mission-body strong {
+          color: #ffffff;
+          font-weight: 500;
+        }
+        
+        .eahl-values-row {
+          display: flex;
+          gap: 12px;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        
+        .eahl-value-tag {
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: rgba(255, 255, 255, 0.9);
+          padding: 10px 20px;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          border-radius: 100px;
+          transition: all 0.2s ease;
+        }
+        
+        .eahl-value-tag:hover {
+          background: rgba(255, 255, 255, 0.15);
+          transform: translateY(-2px);
+        }
+        
+        /* ===== CTA SECTION ===== */
+        .eahl-cta-section {
+          background: var(--eahl-cream) !important;
+        }
+        
+        .eahl-cta-card {
+          background: #ffffff;
+          border: 1px solid #e5e7eb;
+          border-radius: 20px;
+          padding: 60px 48px;
+          max-width: 700px;
+          margin: 0 auto;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .eahl-cta-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 40px;
+          right: 40px;
+          height: 4px;
+          background: linear-gradient(90deg, var(--eahl-accent), var(--eahl-coral), var(--eahl-sage));
+          border-radius: 0 0 4px 4px;
+        }
+        
+        .eahl-cta-title {
+          font-size: 1.75rem !important;
+          font-weight: 500 !important;
+          color: var(--eahl-navy) !important;
+          margin-bottom: 16px !important;
+        }
+        
+        .eahl-cta-desc {
+          font-size: 1.05rem;
+          color: var(--eahl-text-light);
+          line-height: 1.7;
+          margin-bottom: 28px;
+        }
+        
+        .eahl-cta-roles {
+          display: flex;
+          gap: 8px;
+          justify-content: center;
+          flex-wrap: wrap;
+          margin-bottom: 32px;
+        }
+        
+        .eahl-role {
+          font-size: 0.9rem;
+          font-weight: 500;
+          padding: 8px 16px;
+          border-radius: 8px;
+        }
+        
+        .eahl-role-phd { background: rgba(74, 144, 164, 0.12); color: var(--eahl-accent); }
+        .eahl-role-postdoc { background: rgba(224, 122, 95, 0.12); color: var(--eahl-coral); }
+        .eahl-role-participant { background: rgba(107, 143, 113, 0.12); color: var(--eahl-sage); }
+        
+        .eahl-cta-button {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #ffffff !important;
+          background: var(--eahl-navy);
+          padding: 16px 36px;
+          border-radius: 100px;
+          text-decoration: none !important;
+          transition: all 0.3s ease;
+        }
+        
+        .eahl-cta-button:hover {
+          background: var(--eahl-accent);
+          transform: translateY(-2px);
+          box-shadow: 0 12px 24px rgba(74, 144, 164, 0.25);
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+          .eahl-hero-content { padding: 20px 16px; }
+          .eahl-pillar-card { padding: 32px 24px; }
+          .eahl-cta-card { padding: 40px 24px; }
+          .eahl-cta-card::before { left: 20px; right: 20px; }
+        }
         </style>
+    design:
+      columns: "1"
+      spacing:
+        padding: ["0", "0", "0", "0"]
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto;">
-          
-          <div class="pillar-card delay-100">
-            <div class="icon-box" style="background: rgba(0, 122, 255, 0.1); color: #007AFF;">
-              <i class="fas fa-ear-listen"></i>
-            </div>
-            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1d1d1f; margin-bottom: 15px;">Cochlear Implants</h3>
-            <p style="font-size: 1.05rem; color: #6e6e73; line-height: 1.6;">
-              Optimizing electrical stimulation strategies to restore natural hearing perception and pitch coding.
-            </p>
+  # -----------------------------------------------------------------------------
+  # 1. HERO
+  # -----------------------------------------------------------------------------
+  - block: markdown
+    content:
+      text: |
+        <div class="eahl-hero-content">
+          <div class="eahl-hero-label">
+            Research Laboratory
           </div>
-
-          <div class="pillar-card delay-200">
-            <div class="icon-box" style="background: rgba(255, 45, 85, 0.1); color: #FF2D55;">
-              <i class="fas fa-wave-square"></i>
-            </div>
-            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1d1d1f; margin-bottom: 15px;">Psychoacoustics</h3>
-            <p style="font-size: 1.05rem; color: #6e6e73; line-height: 1.6;">
-              Quantifying auditory perception through rigorous behavioral testing, detection thresholds, and modeling.
-            </p>
+          <h1 class="eahl-hero-title">
+            Electric & Acoustic
+            <span class="eahl-hero-title-accent">Hearing Lab</span>
+          </h1>
+          <p class="eahl-hero-subtitle">
+            Decoding the neural basis of auditory perception to transform hearing restoration for cochlear implant users.
+          </p>
+          <p class="eahl-hero-affiliation">University of South Alabama</p>
+          <div class="eahl-waveform">
+            <div class="eahl-wave-bar"></div>
+            <div class="eahl-wave-bar"></div>
+            <div class="eahl-wave-bar"></div>
+            <div class="eahl-wave-bar"></div>
+            <div class="eahl-wave-bar"></div>
+            <div class="eahl-wave-bar"></div>
+            <div class="eahl-wave-bar"></div>
+            <div class="eahl-wave-bar"></div>
+            <div class="eahl-wave-bar"></div>
+            <div class="eahl-wave-bar"></div>
+            <div class="eahl-wave-bar"></div>
+            <div class="eahl-wave-bar"></div>
+            <div class="eahl-wave-bar"></div>
           </div>
-
-          <div class="pillar-card delay-300">
-            <div class="icon-box" style="background: rgba(175, 82, 222, 0.1); color: #AF52DE;">
-              <i class="fas fa-brain"></i>
-            </div>
-            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1d1d1f; margin-bottom: 15px;">Auditory Neuroscience</h3>
-            <p style="font-size: 1.05rem; color: #6e6e73; line-height: 1.6;">
-              Mapping neural health, plasticity, and cortical reorganization using high-density EEG.
-            </p>
-          </div>
-
         </div>
     design:
       columns: "1"
       spacing:
         padding: ["100px", "0", "100px", "0"]
-      background:
-        color: "#ffffff"
+      css_class: "eahl-hero-section"
+
   # -----------------------------------------------------------------------------
-  # 3. MISSION: The "Cinematic" Moment
-  #    ADDED: Entrance animations to the text elements
+  # 2. RESEARCH PILLARS
   # -----------------------------------------------------------------------------
   - block: markdown
     content:
-      title: ""
-      subtitle: ""
       text: |
-        <div style="text-align: center; max-width: 900px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px;">
-
-          <style>
-            .mission-anim { opacity: 0; animation: fadeInUp 1s ease-out forwards; }
-          </style>
-
-          <h2 class="mission-anim" style="color: #ffffff; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.15; font-weight: 300; margin-bottom: 40px; letter-spacing: -0.02em;">
-            Hearing is more than sound detection. <br>
-            It is the <span class="gradient-text-anim">gateway to connection.</span>
-          </h2>
-
-          <div class="mission-anim delay-1" style="width: 80px; height: 4px; background: rgba(255,255,255,0.3); margin: 0 auto 40px auto; border-radius: 2px;"></div>
-
-          <p class="mission-anim delay-2" style="font-size: clamp(1.1rem, 2vw, 1.35rem); color: rgba(255, 255, 255, 0.9); line-height: 1.7; font-weight: 400; max-width: 800px; margin: 0 auto;">
-            By combining <span style="color: #fff; font-weight: 600;">computational modeling</span>, <span style="color: #fff; font-weight: 600;">psychophysics</span>, and <span style="color: #fff; font-weight: 600;">neuroimaging</span>, our lab seeks to bridge the critical gap between basic auditory science and clinical rehabilitation.
-          </p>
-
-          <div class="mission-anim delay-2" style="margin-top: 50px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-            <span class="glass-pill">🚀 Open Science</span>
-            <span class="glass-pill">📊 Reproducible Research</span>
-            <span class="glass-pill">🎓 Mentorship</span>
+        <div class="eahl-section-header">
+          <h2 class="eahl-section-title">Research Focus</h2>
+          <div class="eahl-section-divider"></div>
+        </div>
+        <div class="eahl-pillars-grid">
+          <div class="eahl-pillar-card" style="--card-color: #4a90a4; --icon-bg: rgba(74, 144, 164, 0.12); --icon-color: #4a90a4;">
+            <div class="eahl-pillar-icon">
+              <i class="fas fa-ear-listen"></i>
+            </div>
+            <h3 class="eahl-pillar-title">Cochlear Implants</h3>
+            <p class="eahl-pillar-desc">
+              Pioneering electrical stimulation strategies to restore natural pitch perception and improve music appreciation for CI users.
+            </p>
           </div>
-
+          <div class="eahl-pillar-card" style="--card-color: #e07a5f; --icon-bg: rgba(224, 122, 95, 0.12); --icon-color: #e07a5f;">
+            <div class="eahl-pillar-icon">
+              <i class="fas fa-wave-square"></i>
+            </div>
+            <h3 class="eahl-pillar-title">Psychoacoustics</h3>
+            <p class="eahl-pillar-desc">
+              Quantifying auditory perception through rigorous behavioral experiments, adaptive psychophysical methods, and computational modeling.
+            </p>
+          </div>
+          <div class="eahl-pillar-card" style="--card-color: #6b8f71; --icon-bg: rgba(107, 143, 113, 0.12); --icon-color: #6b8f71;">
+            <div class="eahl-pillar-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3 class="eahl-pillar-title">Auditory Neuroscience</h3>
+            <p class="eahl-pillar-desc">
+              Mapping neural health, cortical plasticity, and reorganization using high-density EEG and advanced signal processing.
+            </p>
+          </div>
         </div>
     design:
       columns: "1"
       spacing:
-        padding: ["140px", "0", "140px", "0"]
-      css_class: "text-white"
-      css_style: "background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1638866411782-5f59287c19e1?q=80&w=1820&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed; color: #ffffff;"
+        padding: ["100px", "20px", "100px", "20px"]
+      css_class: "eahl-research-section"
 
-
-# -----------------------------------------------------------------------------
-  # 4. CTA: Get Involved (HOLOGRAPHIC UPGRADE + FIX)
-  #    Fixed: Button visibility bug.
-  #    Added: Moving gradient border & soft background glow.
-  #    Refined: HTML structure flattened for Hugo compatibility.
+  # -----------------------------------------------------------------------------
+  # 3. MISSION
   # -----------------------------------------------------------------------------
   - block: markdown
     content:
       text: |
-        <style>
-        /* 1. Define Animations */
-        @keyframes float-ambient {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-12px); }
-        100% { transform: translateY(0px); }
-        }
-        @keyframes pulse-glow {
-        0% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0.4); }
-        70% { box-shadow: 0 0 0 15px rgba(0, 122, 255, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0); }
-        }
-        @keyframes slideUpFade {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes border-rotate {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-        }
-        /* 2. Container Animations */
-        .cta-wrapper {
-        opacity: 0; 
-        animation: slideUpFade 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        .cta-floater {
-        animation: float-ambient 6s ease-in-out infinite;
-        }
-        /* 3. The Holographic Card */
-        .cta-card-holo {
-        position: relative;
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(50px) saturate(180%);
-        -webkit-backdrop-filter: blur(50px) saturate(180%);
-        border-radius: 40px;
-        padding: 80px 40px;
-        max-width: 900px;
-        margin: 0 auto;
-        text-align: center;
-        overflow: hidden;
-        box-shadow: 0 40px 100px rgba(0, 122, 255, 0.15), 0 10px 30px rgba(0,0,0,0.05);
-        border: 2px solid transparent;
-        background-clip: padding-box;
-        }
-        /* 4. The Button (BUG FIXED) */
-        .cta-btn-holo {
-        display: inline-block;
-        background: linear-gradient(135deg, #007AFF 0%, #0056b3 100%);
-        color: #ffffff;
-        padding: 22px 60px;
-        border-radius: 50px;
-        font-size: 1.2rem;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        text-decoration: none;
-        animation: pulse-glow 2s infinite;
-        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .cta-btn-holo:hover {
-        animation-play-state: paused; 
-        transform: scale(1.05) translateY(-3px);
-        box-shadow: 0 20px 50px rgba(0, 122, 255, 0.5);
-        }
-        </style>
-        <div class="cta-wrapper">
-        <div class="cta-floater">
-        <div class="cta-card-holo">
-        <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #007AFF, #FF2D55, #007AFF); background-size: 200% 200%; animation: border-rotate 4s linear infinite;"></div>
-        <p style="font-size: clamp(1.2rem, 2vw, 1.5rem); color: #48484a; line-height: 1.6; margin-bottom: 50px; font-weight: 500; max-width: 750px; margin-left: auto; margin-right: auto;">We are actively recruiting <strong style="color: #007AFF;">PhD Students</strong> and <strong style="color: #FF2D55;">Study Participants</strong> to join our research efforts.</p>
-        <a href="./contact/" class="cta-btn-holo">Get Involved &rarr;</a>
-        </div>
-        </div>
+        <div class="eahl-mission-content">
+          <h2 class="eahl-mission-quote">
+            Hearing is more than detecting sound—it's the <em>foundation of human connection.</em>
+          </h2>
+          <p class="eahl-mission-body">
+            By integrating <strong>computational modeling</strong>, <strong>psychophysical testing</strong>, and <strong>neuroimaging</strong>, we're decoding how the brain processes sound to create better hearing solutions.
+          </p>
+          <div class="eahl-values-row">
+            <span class="eahl-value-tag">Open Science</span>
+            <span class="eahl-value-tag">Reproducible Research</span>
+            <span class="eahl-value-tag">Student-Centered</span>
+          </div>
         </div>
     design:
       columns: "1"
       spacing:
-        padding: ["100px", "0", "140px", "0"]
-      css_class: "text-center"
-      background:
-        color: "#F5F5F7"
+        padding: ["120px", "20px", "120px", "20px"]
+      css_class: "eahl-mission-section"
+
+  # -----------------------------------------------------------------------------
+  # 4. CTA
+  # -----------------------------------------------------------------------------
+  - block: markdown
+    content:
+      text: |
+        <div class="eahl-cta-card">
+          <h2 class="eahl-cta-title">Join Our Research Team</h2>
+          <p class="eahl-cta-desc">
+            We're actively recruiting researchers and participants to advance auditory neuroscience.
+          </p>
+          <div class="eahl-cta-roles">
+            <span class="eahl-role eahl-role-phd">PhD Students</span>
+            <span class="eahl-role eahl-role-postdoc">Postdoctoral Fellows</span>
+            <span class="eahl-role eahl-role-participant">Study Participants</span>
+          </div>
+          <a href="./contact/" class="eahl-cta-button">
+            Get Involved →
+          </a>
+        </div>
+    design:
+      columns: "1"
+      spacing:
+        padding: ["80px", "20px", "120px", "20px"]
+      css_class: "eahl-cta-section"
 ---

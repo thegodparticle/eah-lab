@@ -6,6 +6,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap");
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -9734,23 +9735,24 @@ div.chart {
    1. Global Variables & Base Styles
    ========================================================================== */
 :root {
-  /* Color Palette - Light Mode */
-  --color-primary: #007AFF;
-  /* Apple's signature blue for interactive elements */
-  --color-primary-dark: #0056B3;
-  /* A darker blue for hover states */
-  --color-text: #1d1d1f;
-  /* A deep, near-black for high readability. */
-  --color-text-muted: #86868b;
-  /* A lighter gray for secondary text */
-  --color-background: #f5f5f7;
-  /* A soft, off-white, used in Apple's interfaces. */
-  --color-border: #d2d2d7;
-  /* A light gray for subtle borders */
-  --color-shadow: rgba(0, 0, 0, 0.05);
-  /* A softer shadow */
-  /* Typography */
-  --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* EAHL Color Palette */
+  --color-primary: #4a90a4;
+  --color-primary-dark: #3d7a8c;
+  --color-text: #374151;
+  --color-text-muted: #6b7280;
+  --color-background: #faf8f5;
+  --color-border: #e5e7eb;
+  --color-shadow: rgba(10, 22, 40, 0.08);
+  /* EAHL Extended Palette */
+  --eahl-navy: #0a1628;
+  --eahl-cream: #faf8f5;
+  --eahl-accent: #4a90a4;
+  --eahl-coral: #e07a5f;
+  --eahl-sage: #6b8f71;
+  /* Typography - Add Playfair Display */
+  --font-family-sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-serif: 'Playfair Display', Georgia, serif;
+  /* Rest stays the same... */
   --font-size-base: 18px;
   --font-size-h1: 2.5rem;
   --font-size-h2: 1.5rem;

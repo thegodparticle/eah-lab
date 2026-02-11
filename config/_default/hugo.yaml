@@ -60,8 +60,11 @@ taxonomies:
 
 # Markup handling
 markup:
+  goldmark:
+    renderer:
+      unsafe: true
   _merge: deep
-
+  
 # Related Content (Logic for "See also" at bottom of posts)
 related:
   threshold: 80
