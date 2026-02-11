@@ -1,10 +1,16 @@
-############################
-## HUGO MODULES
-## Install or uninstall themes and plugins here.
-## Docs: https://gohugo.io/hugo-modules/
-############################
+# =============================================================================
+# ELECTRIC & ACOUSTIC HEARING LAB - HUGO MODULES
+# =============================================================================
+# File: config/_default/module.yaml
+# Documentation: https://gohugo.io/hugo-modules/
+# =============================================================================
 
 imports:
+  # Decap CMS (formerly Netlify CMS) for content management
   - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-decap-cms
+  
+  # Netlify deployment optimizations
   - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-netlify
+  
+  # Core Bootstrap v5 theme
   - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-bootstrap/v5

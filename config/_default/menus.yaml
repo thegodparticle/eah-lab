@@ -1,39 +1,59 @@
 # =============================================================================
-# ELECTRIC & ACOUSTIC HEARING LAB - NAVIGATION MENU
+# ELECTRIC & ACOUSTIC HEARING LAB - NAVIGATION MENUS
 # =============================================================================
-# File: menus.yaml
-# Location: config/_default/menus.yaml
+# File: config/_default/menus.yaml
 # =============================================================================
 
+# -----------------------------------------------------------------------------
+# MAIN NAVIGATION
+# -----------------------------------------------------------------------------
 main:
-  # ---------------------------------------------------------------------------
-  # PRIMARY NAVIGATION
-  # ---------------------------------------------------------------------------
-  
   - name: Home
     url: /
     weight: 10
-    
+
   - name: Research
     url: /research/
     weight: 20
-    
+
   - name: Publications
     url: /publication/
     weight: 30
-    
+
   - name: Team
     url: /people/
     weight: 40
-    
+
   - name: News
     url: /post/
     weight: 50
-
 
   - name: Join Us
     url: /contact/
     weight: 60
     params:
-        highlight: true
+      highlight: true
 
+# -----------------------------------------------------------------------------
+# FOOTER NAVIGATION (Optional)
+# -----------------------------------------------------------------------------
+footer:
+  - name: Research
+    url: /research/
+    weight: 10
+
+  - name: Publications
+    url: /publication/
+    weight: 20
+
+  - name: Team
+    url: /people/
+    weight: 30
+
+  - name: Contact
+    url: /contact/
+    weight: 40
+
+  - name: Privacy
+    url: /privacy/
+    weight: 50

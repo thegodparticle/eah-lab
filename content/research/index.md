@@ -27,7 +27,7 @@ sections:
           font-family: 'Playfair Display', Georgia, serif !important;
         }
         
-        .research-page p, .research-page span, .research-page a {
+        .research-page p, .research-page span, .research-page a, .research-page li {
           font-family: 'Source Sans 3', -apple-system, sans-serif !important;
         }
         
@@ -65,10 +65,10 @@ sections:
         }
         
         .research-hero-title {
-          font-size: clamp(2.5rem, 5.5vw, 4rem) !important;
+          font-size: clamp(2.25rem, 5vw, 3.25rem) !important;
           font-weight: 500 !important;
           color: var(--eahl-navy) !important;
-          line-height: 1.1 !important;
+          line-height: 1.2 !important;
           margin-bottom: 24px !important;
           letter-spacing: -0.02em;
         }
@@ -90,7 +90,7 @@ sections:
           font-size: 1.2rem;
           color: var(--eahl-text-light);
           line-height: 1.75;
-          max-width: 680px;
+          max-width: 700px;
           margin: 0 auto;
         }
         
@@ -99,12 +99,12 @@ sections:
           font-weight: 600;
         }
         
-        /* ===== PILLAR CARDS ===== */
-        .research-pillars {
+        /* ===== QUESTION CARDS ===== */
+        .research-questions {
           background: var(--eahl-cream) !important;
         }
         
-        .pillar-card {
+        .question-card {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 0;
@@ -117,45 +117,45 @@ sections:
           transition: all 0.4s ease;
         }
         
-        .pillar-card:last-child {
+        .question-card:last-child {
           margin-bottom: 0;
         }
         
-        .pillar-card:hover {
+        .question-card:hover {
           box-shadow: 0 32px 64px rgba(10, 22, 40, 0.1);
           transform: translateY(-4px);
         }
         
-        .pillar-card.reversed {
+        .question-card.reversed {
           direction: rtl;
         }
         
-        .pillar-card.reversed > * {
+        .question-card.reversed > * {
           direction: ltr;
         }
         
-        .pillar-image {
+        .question-image {
           position: relative;
           min-height: 420px;
           background-size: cover;
           background-position: center;
         }
         
-        .pillar-image::after {
+        .question-image::after {
           content: '';
           position: absolute;
           inset: 0;
           background: linear-gradient(135deg, rgba(10, 22, 40, 0.15) 0%, rgba(10, 22, 40, 0.05) 100%);
         }
         
-        .pillar-content {
+        .question-content {
           padding: 56px 48px;
           display: flex;
           flex-direction: column;
           justify-content: center;
         }
         
-        .pillar-number {
+        .question-number {
           font-family: 'Playfair Display', serif !important;
           font-size: 4rem;
           font-weight: 400;
@@ -165,7 +165,7 @@ sections:
           color: var(--eahl-navy);
         }
         
-        .pillar-label {
+        .question-label {
           font-size: 0.75rem;
           font-weight: 600;
           letter-spacing: 0.15em;
@@ -173,67 +173,59 @@ sections:
           margin-bottom: 12px;
         }
         
-        .pillar-label.accent { color: var(--eahl-accent); }
-        .pillar-label.coral { color: var(--eahl-coral); }
-        .pillar-label.sage { color: var(--eahl-sage); }
+        .question-label.accent { color: var(--eahl-accent); }
+        .question-label.coral { color: var(--eahl-coral); }
+        .question-label.sage { color: var(--eahl-sage); }
         
-        .pillar-heading {
-          font-size: clamp(1.75rem, 3vw, 2.25rem) !important;
+        .question-heading {
+          font-size: clamp(1.4rem, 2.5vw, 1.75rem) !important;
           font-weight: 500 !important;
           color: var(--eahl-navy) !important;
-          line-height: 1.2 !important;
+          line-height: 1.35 !important;
           margin-bottom: 20px !important;
-          letter-spacing: -0.02em;
+          letter-spacing: -0.01em;
+          font-style: italic;
         }
         
-        .pillar-text {
+        .question-text {
           font-size: 1.05rem;
           color: var(--eahl-text-light);
           line-height: 1.75;
           margin-bottom: 28px;
         }
         
-        .pillar-text strong {
+        .question-text strong {
           color: var(--eahl-navy);
           font-weight: 600;
         }
         
-        .pillar-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
+        .question-approaches {
+          margin: 0;
+          padding: 0;
+          list-style: none;
         }
         
-        .pillar-tag {
-          display: inline-block;
-          padding: 8px 16px;
-          border-radius: 100px;
-          font-size: 0.85rem;
-          font-weight: 500;
-          transition: all 0.2s ease;
+        .question-approaches li {
+          position: relative;
+          padding-left: 20px;
+          margin-bottom: 8px;
+          font-size: 0.95rem;
+          color: var(--eahl-text);
         }
         
-        .pillar-tag.accent {
-          color: var(--eahl-accent);
-          background: rgba(74, 144, 164, 0.1);
-          border: 1px solid rgba(74, 144, 164, 0.2);
+        .question-approaches li::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 10px;
+          width: 8px;
+          height: 2px;
+          border-radius: 1px;
         }
         
-        .pillar-tag.coral {
-          color: var(--eahl-coral);
-          background: rgba(224, 122, 95, 0.1);
-          border: 1px solid rgba(224, 122, 95, 0.2);
-        }
-        
-        .pillar-tag.sage {
-          color: var(--eahl-sage);
-          background: rgba(107, 143, 113, 0.1);
-          border: 1px solid rgba(107, 143, 113, 0.2);
-        }
-        
-        .pillar-tag:hover {
-          transform: translateY(-2px);
-        }
+        .question-approaches.accent li::before { background: var(--eahl-accent); }
+        .question-approaches.coral li::before { background: var(--eahl-coral); }
+        .question-approaches.sage li::before { background: var(--eahl-sage); }
         
         /* ===== CTA SECTION ===== */
         .research-cta {
@@ -294,22 +286,22 @@ sections:
         
         /* ===== RESPONSIVE ===== */
         @media (max-width: 900px) {
-          .pillar-card,
-          .pillar-card.reversed {
+          .question-card,
+          .question-card.reversed {
             grid-template-columns: 1fr;
             direction: ltr;
           }
-          .pillar-card.reversed > * {
+          .question-card.reversed > * {
             direction: ltr;
           }
-          .pillar-image {
+          .question-image {
             min-height: 280px;
             order: -1;
           }
-          .pillar-content {
+          .question-content {
             padding: 40px 32px;
           }
-          .pillar-number {
+          .question-number {
             font-size: 3rem;
           }
         }
@@ -326,13 +318,13 @@ sections:
     content:
       text: |
         <div class="research-hero-content">
-          <div class="research-hero-label">Our Methodology</div>
+          <div class="research-hero-label">Research Focus</div>
           <h1 class="research-hero-title">
-            From Electrode<br>to <em>Cortex</em>
+            Why Do Cochlear Implants Work <em>Brilliantly</em> for Some — and <em>Poorly</em> for Others?
           </h1>
           <div class="research-hero-divider"></div>
           <p class="research-hero-desc">
-            We don't just study the ear — we study the <strong>entire auditory pathway</strong>. By combining electrical engineering, psychophysics, and neuroscience, we bridge the gap between artificial stimulation and natural perception.
+            Two patients. Same device. Same surgery. Vastly different outcomes. One understands speech effortlessly; the other struggles even in quiet rooms. We're working to understand <strong>why</strong> — and how to close this gap.
           </p>
         </div>
     design:
@@ -342,88 +334,88 @@ sections:
       css_class: "research-page research-hero"
 
   # -----------------------------------------------------------------------------
-  # 2. PILLAR 1 - COCHLEAR IMPLANTS
+  # 2. QUESTION 1 - NEURAL HEALTH
   # -----------------------------------------------------------------------------
   - block: markdown
     content:
       text: |
-        <div class="pillar-card">
-          <div class="pillar-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2670&auto=format&fit=crop');"></div>
-          <div class="pillar-content">
-            <div class="pillar-number">01</div>
-            <p class="pillar-label accent">Cochlear Implants</p>
-            <h2 class="pillar-heading">Focused Neural Stimulation</h2>
-            <p class="pillar-text">
-              Current implants spread electrical fields too broadly, creating muddy, distorted sound. We're engineering <strong>focused multipolar stimulation strategies</strong> that precisely shape electrical fields to target specific neural populations — restoring the spectral resolution needed for music and speech in noise.
+        <div class="question-card">
+          <div class="question-image" style="background-image: url('https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=2574&auto=format&fit=crop');"></div>
+          <div class="question-content">
+            <div class="question-number">01</div>
+            <p class="question-label accent">Neural Health</p>
+            <h2 class="question-heading">How much does the condition of the auditory nerve limit what a cochlear implant user can hear?</h2>
+            <p class="question-text">
+              Before sound reaches the brain, it must pass through the auditory nerve — and in many CI users, these nerve fibers have <strong>degenerated</strong>. We're developing methods to reliably measure neural health at individual electrode sites and determine how this degeneration constrains what patients can perceive.
             </p>
-            <div class="pillar-tags">
-              <span class="pillar-tag accent">Tripolar Stimulation</span>
-              <span class="pillar-tag accent">Current Steering</span>
-              <span class="pillar-tag accent">Phantom Electrodes</span>
-            </div>
+            <ul class="question-approaches accent">
+              <li>Objective measures of neural survival patterns</li>
+              <li>Relating neural health to pitch perception limits</li>
+              <li>Predicting outcomes from physiological markers</li>
+            </ul>
           </div>
         </div>
     design:
       columns: "1"
       spacing:
         padding: ["80px", "20px", "24px", "20px"]
-      css_class: "research-page research-pillars"
+      css_class: "research-page research-questions"
 
   # -----------------------------------------------------------------------------
-  # 3. PILLAR 2 - PSYCHOACOUSTICS
+  # 3. QUESTION 2 - PERSONALIZED STIMULATION
   # -----------------------------------------------------------------------------
   - block: markdown
     content:
       text: |
-        <div class="pillar-card reversed">
-          <div class="pillar-image" style="background-image: url('https://images.unsplash.com/photo-1484704849700-f032a568e944?q=80&w=2670&auto=format&fit=crop');"></div>
-          <div class="pillar-content">
-            <div class="pillar-number">02</div>
-            <p class="pillar-label coral">Psychoacoustics</p>
-            <h2 class="pillar-heading">Quantifying the Human Experience</h2>
-            <p class="pillar-text">
-              We don't just measure detection thresholds — we map the complete limits of perceptual resolution. Using rigorous <strong>psychophysical paradigms</strong> like spectral ripple discrimination and temporal modulation detection, we quantify exactly how much auditory detail a CI user can extract from their device.
+        <div class="question-card reversed">
+          <div class="question-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop');"></div>
+          <div class="question-content">
+            <div class="question-number">02</div>
+            <p class="question-label coral">Personalized Stimulation</p>
+            <h2 class="question-heading">Can we tailor electrical stimulation to each patient's unique auditory system?</h2>
+            <p class="question-text">
+              Current cochlear implants use essentially the same stimulation approach for everyone — but every patient's auditory nerve is different. We're investigating how to <strong>personalize</strong> stimulation strategies based on individual patterns of neural health, potentially improving outcomes without changing the hardware.
             </p>
-            <div class="pillar-tags">
-              <span class="pillar-tag coral">Spectral Ripple</span>
-              <span class="pillar-tag coral">Modulation Detection</span>
-              <span class="pillar-tag coral">Pitch Scaling</span>
-            </div>
+            <ul class="question-approaches coral">
+              <li>Site-specific stimulation parameters</li>
+              <li>Matching stimulation to local neural condition</li>
+              <li>Translating research findings to clinical fitting</li>
+            </ul>
           </div>
         </div>
     design:
       columns: "1"
       spacing:
         padding: ["0", "20px", "24px", "20px"]
-      css_class: "research-page research-pillars"
+      css_class: "research-page research-questions"
 
   # -----------------------------------------------------------------------------
-  # 4. PILLAR 3 - AUDITORY NEUROSCIENCE
+  # 4. QUESTION 3 - PERCEPTUAL LIMITS
   # -----------------------------------------------------------------------------
   - block: markdown
     content:
       text: |
-        <div class="pillar-card">
-          <div class="pillar-image" style="background-image: url('https://images.unsplash.com/photo-1559757175-5b8d42d634d3?q=80&w=2670&auto=format&fit=crop');"></div>
-          <div class="pillar-content">
-            <div class="pillar-number">03</div>
-            <p class="pillar-label sage">Auditory Neuroscience</p>
-            <h2 class="pillar-heading">The Plastic Brain</h2>
-            <p class="pillar-text">
-              The cochlea is just the entry point — the real transformation happens in the cortex. Using <strong>high-density EEG</strong>, we track how the auditory cortex reorganizes after hearing loss and implantation. Our goal: harness neuroplasticity to train the brain to extract meaning from artificial signals.
+        <div class="question-card">
+          <div class="question-image" style="background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=2670&auto=format&fit=crop');"></div>
+          <div class="question-content">
+            <div class="question-number">03</div>
+            <p class="question-label sage">Perceptual Boundaries</p>
+            <h2 class="question-heading">What are the fundamental limits of hearing with electrical stimulation?</h2>
+            <p class="question-text">
+              Music sounds flat. Voices blur together in noise. These struggles trace back to <strong>spectral resolution</strong> — the ability to distinguish different frequencies. We use rigorous psychophysical methods to map the precise boundaries of perception in CI users, identifying where the bottlenecks lie and what might be done about them.
             </p>
-            <div class="pillar-tags">
-              <span class="pillar-tag sage">Cortical Potentials</span>
-              <span class="pillar-tag sage">Source Localization</span>
-              <span class="pillar-tag sage">Neural Adaptation</span>
-            </div>
+            <ul class="question-approaches sage">
+              <li>Psychophysical measurement of pitch sensitivity</li>
+              <li>Spectral and temporal resolution assessment</li>
+              <li>Connecting perceptual limits to device and neural factors</li>
+            </ul>
           </div>
         </div>
     design:
       columns: "1"
       spacing:
         padding: ["0", "20px", "100px", "20px"]
-      css_class: "research-page research-pillars"
+      css_class: "research-page research-questions"
 
   # -----------------------------------------------------------------------------
   # 5. CTA
@@ -432,13 +424,13 @@ sections:
     content:
       text: |
         <div class="research-cta-content">
-          <span class="research-cta-label">Explore Further</span>
-          <h2 class="research-cta-title">Dive Deeper</h2>
+          <span class="research-cta-label">Our Work</span>
+          <h2 class="research-cta-title">Explore Our Publications</h2>
           <p class="research-cta-desc">
-            See how we apply these methodologies in our peer-reviewed publications.
+            See how we're addressing these questions through peer-reviewed research.
           </p>
           <a href="../publication/" class="research-cta-btn">
-            View Publications <span>→</span>
+            View Publications →
           </a>
         </div>
     design:

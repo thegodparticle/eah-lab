@@ -1,71 +1,118 @@
+# =============================================================================
+# ELECTRIC & ACOUSTIC HEARING LAB - HUGO CONFIGURATION
+# =============================================================================
+# File: config/_default/hugo.yaml
+# Site: https://eahlab.com
+# Theme: HugoBlox Research Group
+# =============================================================================
+
 theme: "theme-research-group"
 
 # -----------------------------------------------------------------------------
-# SITE CONFIGURATION
+# SITE IDENTITY
 # -----------------------------------------------------------------------------
 title: Electric & Acoustic Hearing Lab
 baseURL: 'https://eahlab.com/'
-copyright: '© 2026 Electric & Acoustic Hearing Lab'  # Adds a professional footer
+copyright: '© {year} Electric & Acoustic Hearing Lab. University of South Alabama.'
 
-############################
-## LANGUAGE & TIMEZONE
-############################
-defaultContentLanguage: en       # More specific for US-based labs
+# -----------------------------------------------------------------------------
+# LANGUAGE & LOCALIZATION
+# -----------------------------------------------------------------------------
+defaultContentLanguage: en
 hasCJKLanguage: false
 defaultContentLanguageInSubdir: false
 removePathAccents: true
-timeZone: "America/Chicago"           # Ensures your post dates are correct for Alabama
+timeZone: "America/Chicago"
 
-############################
-## IMAGING & MEDIA
-############################
-imaging:
-  resampleFilter: lanczos
-  quality: 90                         # Increased from 75 to 90 for sharper diagrams/photos
-  anchor: smart
-
-############################
-## ADVANCED SETTINGS
-############################
-enableGitInfo: false
+# -----------------------------------------------------------------------------
+# CONTENT SETTINGS
+# -----------------------------------------------------------------------------
 summaryLength: 30
+enableEmoji: true
+enableRobotsTXT: true
+enableGitInfo: false
+
+# Pagination
 pagination:
   pagerSize: 10
-enableEmoji: true
-enableRobotsTXT: true                 # Essential for Google Scholar indexing
+
+# Footnotes
 footnotereturnlinkcontents: <sup>^</sup>
 
 # Files to ignore during build
-ignoreFiles: [\.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
+ignoreFiles:
+  - \.ipynb$
+  - .ipynb_checkpoints$
+  - \.Rmd$
+  - \.Rmarkdown$
+  - _cache$
+  - \.obsidian$
+  - \.DS_Store$
 
-# URL Structure (Best not to touch these)
+# -----------------------------------------------------------------------------
+# URL STRUCTURE
+# -----------------------------------------------------------------------------
 permalinks:
   authors: '/author/:slug/'
   tags: '/tag/:slug/'
   categories: '/category/:slug/'
   publication_types: '/publication-type/:slug/'
+  post: '/news/:slug/'
+
 disableAliases: true
 
-# Netlify & Browser outputs
-outputs:
-  home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
-  section: [HTML, RSS]
-
-# Taxonomy (Categories)
+# -----------------------------------------------------------------------------
+# TAXONOMIES
+# -----------------------------------------------------------------------------
 taxonomies:
   tag: tags
   category: categories
   publication_type: publication_types
   author: authors
 
-# Markup handling
+# -----------------------------------------------------------------------------
+# BUILD OUTPUTS
+# -----------------------------------------------------------------------------
+outputs:
+  home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
+  section: [HTML, RSS]
+
+# -----------------------------------------------------------------------------
+# IMAGE PROCESSING
+# -----------------------------------------------------------------------------
+imaging:
+  resampleFilter: lanczos
+  quality: 90
+  anchor: smart
+
+# -----------------------------------------------------------------------------
+# MARKUP & RENDERING
+# -----------------------------------------------------------------------------
 markup:
   goldmark:
     renderer:
       unsafe: true
+    extensions:
+      typographer:
+        disable: false
+    parser:
+      autoHeadingID: true
+      autoHeadingIDType: github
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    noClasses: false
+    style: github
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+    ordered: false
   _merge: deep
-  
-# Related Content (Logic for "See also" at bottom of posts)
+
+# -----------------------------------------------------------------------------
+# RELATED CONTENT
+# -----------------------------------------------------------------------------
 related:
   threshold: 80
   includeNewer: true
@@ -75,8 +122,70 @@ related:
       weight: 100
     - name: categories
       weight: 70
+    - name: authors
+      weight: 50
 
+# -----------------------------------------------------------------------------
+# SECURITY
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# SECURITY
+# -----------------------------------------------------------------------------
 security:
+  funcs:
+    getenv:
+      - ^HUGO_
+      - ^CI$
+      - ^WC_
   _merge: deep
+
+# -----------------------------------------------------------------------------
+# SITEMAP
+# -----------------------------------------------------------------------------
 sitemap:
+  changefreq: weekly
+  priority: 0.5
+  filename: sitemap.xml
   _merge: deep
+
+# -----------------------------------------------------------------------------
+# MINIFICATION
+# -----------------------------------------------------------------------------
+minify:
+  disableCSS: false
+  disableHTML: false
+  disableJS: false
+  disableJSON: false
+  disableSVG: false
+  disableXML: false
+  minifyOutput: true
+  tdewolff:
+    html:
+      keepWhitespace: false
+      keepEndTags: true
+      keepQuotes: true
+
+# -----------------------------------------------------------------------------
+# CACHING
+# -----------------------------------------------------------------------------
+caches:
+  images:
+    dir: ':cacheDir/images'
+    maxAge: "720h"
+  assets:
+    dir: ':cacheDir/assets'
+    maxAge: "720h"
+
+# -----------------------------------------------------------------------------
+# PRIVACY (GDPR)
+# -----------------------------------------------------------------------------
+privacy:
+  googleAnalytics:
+    anonymizeIP: true
+    respectDoNotTrack: true
+  x:
+    enableDNT: true
+  youtube:
+    privacyEnhanced: true
+  vimeo:
+    enableDNT: true

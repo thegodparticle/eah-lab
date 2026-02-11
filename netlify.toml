@@ -1,17 +1,96 @@
+# =============================================================================
+# ELECTRIC & ACOUSTIC HEARING LAB - NETLIFY CONFIGURATION
+# =============================================================================
+# File: netlify.toml
+# Documentation: https://docs.netlify.com/configure-builds/file-based-configuration/
+# =============================================================================
+
 [build]
-command = 'hugo'
-publish = 'public'
+  command = "hugo --gc --minify"
+  publish = "public"
 
 [build.environment]
-HUGO_VERSION = "0.155.3"
+  HUGO_VERSION = "0.139.0"
+  HUGO_ENABLEGITINFO = "false"
+  NODE_VERSION = "20"
 
-[context]
-[context.branch-deploy]
-command = 'hugo -F -b $DEPLOY_PRIME_URL'
-
-[context.deploy-preview]
-command = 'hugo -F -b $DEPLOY_PRIME_URL'
-
+# Production context
 [context.production]
+  command = "hugo --gc --minify"
+  
 [context.production.environment]
-HUGO_ENV = 'production'
+  HUGO_ENV = "production"
+
+# Deploy Preview context
+[context.deploy-preview]
+  command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+
+# Branch Deploy context
+[context.branch-deploy]
+  command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+
+# -----------------------------------------------------------------------------
+# HEADERS
+# -----------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache static assets
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# -----------------------------------------------------------------------------
+# REDIRECTS
+# -----------------------------------------------------------------------------
+# Redirect old URLs if needed
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/publications"
+  to = "/publication/"
+  status = 301
+
+[[redirects]]
+  from = "/team"
+  to = "/people/"
+  status = 301
+
+[[redirects]]
+  from = "/join"
+  to = "/contact/"
+  status = 301
+
+# -----------------------------------------------------------------------------
+# PLUGINS
+# -----------------------------------------------------------------------------
+[[plugins]]
+  package = "netlify-plugin-hugo-cache-resources"
+  
+  [plugins.inputs]
+    debug = false

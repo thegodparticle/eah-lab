@@ -1,16 +1,18 @@
-# SITE PARAMETERS
-# Guide: https://docs.hugoblox.com/tutorial/
+# =============================================================================
+# ELECTRIC & ACOUSTIC HEARING LAB - SITE PARAMETERS
+# =============================================================================
+# File: config/_default/params.yaml
 # Documentation: https://docs.hugoblox.com/
-# This file is formatted using YAML syntax.
+# =============================================================================
 
 # -----------------------------------------------------------------------------
 # APPEARANCE & THEME
 # -----------------------------------------------------------------------------
 appearance:
-  theme_day: minimal          # Clean, white, high-contrast professional look
-  theme_night: ""        # Keeps it consistent (or use 'navy' for dark mode)
-  font: rose-pine             # A modern, elegant font pairing (or try 'minimal')
-  font_size: L                # Large text is modern and accessible
+  theme_day: minimal
+  theme_night: ""
+  font: rose-pine
+  font_size: L
 
 # -----------------------------------------------------------------------------
 # SEO & MARKETING
@@ -20,10 +22,10 @@ marketing:
     site_type: Organization
     local_business_type: 'Research Laboratory'
     org_name: 'Electric & Acoustic Hearing Lab'
-    description: 'Investigating psychoacoustics, auditory neuroscience, and cochlear implants at the University of South Alabama.'
-    twitter: ''               # Add your lab's Twitter handle if you have one
+    description: 'Investigating psychoacoustics, auditory neuroscience, and cochlear implants at the University of South Alabama. Led by Dr. Niyazi Arslan.'
+    twitter: ''
   analytics:
-    google_analytics: ''      # Add your ID (G-XXXXXXXXXX) later
+    google_analytics: ''
     baidu_tongji: ''
     google_tag_manager: ''
     microsoft_clarity: ''
@@ -37,10 +39,10 @@ marketing:
 header:
   navbar:
     enable: true
-    align: r                  # Right-aligned links look more modern
-    show_logo: true           # Ensure you have a logo.png in assets/media/
+    align: r
+    show_logo: true
     show_language: false
-    show_day_night: false      # Toggles are popular and user-friendly
+    show_day_night: false
     show_search: true
     highlight_active_link: true
 
@@ -51,7 +53,7 @@ footer:
   copyright:
     notice: '© {year} Electric & Acoustic Hearing Lab. University of South Alabama.'
     license:
-      enable: false           # Simplified footer (removes Creative Commons clutter)
+      enable: false
       allow_derivatives: false
       share_alike: true
       allow_commercial: false
@@ -69,14 +71,15 @@ locale:
 # -----------------------------------------------------------------------------
 features:
   syntax_highlighter:
-    enable: true              # Useful if you share Python/Matlab code
+    enable: true
     theme: github-light
     extra_languages:
       - r
       - python
       - latex
+      - matlab
   math:
-    enable: true              # CRITICAL for a hearing lab (formulas/equations)
+    enable: true
   privacy_pack:
     enable: false
   repository:
@@ -85,34 +88,72 @@ features:
     branch: main
   avatar:
     gravatar: false
-    shape: circle             # 'circle' is standard for modern profiles
+    shape: circle
   comment:
-    provider: ''              # Comments usually disabled for lab sites
+    provider: ''
   search:
-    provider: wowchemy        # Built-in search
+    provider: wowchemy
     algolia:
       app_id: ''
       api_key: ''
       index_name: ''
       show_logo: false
   map:
-    provider: 'mapnik'        # OpenStreetMap (Free)
+    provider: 'mapnik'
     api_key: ''
     zoom: 15
 
 # -----------------------------------------------------------------------------
-# CMS & ICONS
+# CMS & EXTENSIONS
 # -----------------------------------------------------------------------------
 extensions:
   decap_cms:
     branch: main
     local_backend: false
   academicons:
-    enable: true              # Enables icons for Google Scholar, ORCID, ResearchGate
+    enable: true
 
 # -----------------------------------------------------------------------------
-# CITATIONS
+# PUBLICATIONS
 # -----------------------------------------------------------------------------
 publications:
   date_format: January 2006
-  citation_style: apa         # Standard for Speech & Hearing Sciences
+  citation_style: apa
+
+# -----------------------------------------------------------------------------
+# CONTACT INFORMATION
+# -----------------------------------------------------------------------------
+contact:
+  email: niyaziomerarslan@gmail.com
+  phone: ''
+  address:
+    street: '5721 USA Drive N'
+    city: 'Mobile'
+    region: 'AL'
+    postcode: '36688'
+    country: 'United States'
+    country_code: 'US'
+  coordinates:
+    latitude: '30.6954'
+    longitude: '-88.1780'
+  directions: 'Health Sciences Building'
+  office_hours:
+    - 'Monday–Friday: 9:00 AM – 5:00 PM'
+  appointment_url: ''
+
+# -----------------------------------------------------------------------------
+# SOCIAL LINKS (Site-wide)
+# -----------------------------------------------------------------------------
+social:
+  - icon: envelope
+    icon_pack: fas
+    link: 'mailto:niyaziomerarslan@gmail.com'
+    label: Email
+  - icon: google-scholar
+    icon_pack: ai
+    link: 'https://scholar.google.com/citations?user=cTzzqvMAAAAJ'
+    label: Google Scholar
+  - icon: github
+    icon_pack: fab
+    link: 'https://github.com/thegodparticle'
+    label: GitHub

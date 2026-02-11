@@ -103,7 +103,7 @@ sections:
           font-size: 1.25rem;
           color: rgba(255, 255, 255, 0.85);
           line-height: 1.7;
-          max-width: 600px;
+          max-width: 650px;
           margin: 0 auto 24px auto;
           font-weight: 400;
         }
@@ -322,93 +322,10 @@ sections:
           transform: translateY(-2px);
         }
         
-        /* ===== CTA SECTION ===== */
-        .eahl-cta-section {
-          background: var(--eahl-cream) !important;
-        }
-        
-        .eahl-cta-card {
-          background: #ffffff;
-          border: 1px solid #e5e7eb;
-          border-radius: 20px;
-          padding: 60px 48px;
-          max-width: 700px;
-          margin: 0 auto;
-          text-align: center;
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .eahl-cta-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 40px;
-          right: 40px;
-          height: 4px;
-          background: linear-gradient(90deg, var(--eahl-accent), var(--eahl-coral), var(--eahl-sage));
-          border-radius: 0 0 4px 4px;
-        }
-        
-        .eahl-cta-title {
-          font-size: 1.75rem !important;
-          font-weight: 500 !important;
-          color: var(--eahl-navy) !important;
-          margin-bottom: 16px !important;
-        }
-        
-        .eahl-cta-desc {
-          font-size: 1.05rem;
-          color: var(--eahl-text-light);
-          line-height: 1.7;
-          margin-bottom: 28px;
-        }
-        
-        .eahl-cta-roles {
-          display: flex;
-          gap: 8px;
-          justify-content: center;
-          flex-wrap: wrap;
-          margin-bottom: 32px;
-        }
-        
-        .eahl-role {
-          font-size: 0.9rem;
-          font-weight: 500;
-          padding: 8px 16px;
-          border-radius: 8px;
-        }
-        
-        .eahl-role-phd { background: rgba(74, 144, 164, 0.12); color: var(--eahl-accent); }
-        .eahl-role-postdoc { background: rgba(224, 122, 95, 0.12); color: var(--eahl-coral); }
-        .eahl-role-participant { background: rgba(107, 143, 113, 0.12); color: var(--eahl-sage); }
-        
-        .eahl-cta-button {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 1rem;
-          font-weight: 600;
-          color: #ffffff !important;
-          background: var(--eahl-navy);
-          padding: 16px 36px;
-          border-radius: 100px;
-          text-decoration: none !important;
-          transition: all 0.3s ease;
-        }
-        
-        .eahl-cta-button:hover {
-          background: var(--eahl-accent);
-          transform: translateY(-2px);
-          box-shadow: 0 12px 24px rgba(74, 144, 164, 0.25);
-        }
-        
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
           .eahl-hero-content { padding: 20px 16px; }
           .eahl-pillar-card { padding: 32px 24px; }
-          .eahl-cta-card { padding: 40px 24px; }
-          .eahl-cta-card::before { left: 20px; right: 20px; }
         }
         </style>
     design:
@@ -431,7 +348,7 @@ sections:
             <span class="eahl-hero-title-accent">Hearing Lab</span>
           </h1>
           <p class="eahl-hero-subtitle">
-            Decoding the neural basis of auditory perception to transform hearing restoration for cochlear implant users.
+            Understanding why cochlear implant outcomes vary so dramatically — and developing personalized approaches to close the gap.
           </p>
           <p class="eahl-hero-affiliation">University of South Alabama</p>
           <div class="eahl-waveform">
@@ -463,35 +380,35 @@ sections:
     content:
       text: |
         <div class="eahl-section-header">
-          <h2 class="eahl-section-title">Research Focus</h2>
+          <h2 class="eahl-section-title">What We Study</h2>
           <div class="eahl-section-divider"></div>
         </div>
         <div class="eahl-pillars-grid">
           <div class="eahl-pillar-card" style="--card-color: #4a90a4; --icon-bg: rgba(74, 144, 164, 0.12); --icon-color: #4a90a4;">
             <div class="eahl-pillar-icon">
-              <i class="fas fa-ear-listen"></i>
+              <i class="fas fa-heartbeat"></i>
             </div>
-            <h3 class="eahl-pillar-title">Cochlear Implants</h3>
+            <h3 class="eahl-pillar-title">Neural Health</h3>
             <p class="eahl-pillar-desc">
-              Pioneering electrical stimulation strategies to restore natural pitch perception and improve music appreciation for CI users.
+              Measuring auditory nerve survival patterns and understanding how neural degeneration limits what cochlear implant users can perceive.
             </p>
           </div>
           <div class="eahl-pillar-card" style="--card-color: #e07a5f; --icon-bg: rgba(224, 122, 95, 0.12); --icon-color: #e07a5f;">
             <div class="eahl-pillar-icon">
-              <i class="fas fa-wave-square"></i>
+              <i class="fas fa-sliders-h"></i>
             </div>
-            <h3 class="eahl-pillar-title">Psychoacoustics</h3>
+            <h3 class="eahl-pillar-title">Stimulation Optimization</h3>
             <p class="eahl-pillar-desc">
-              Quantifying auditory perception through rigorous behavioral experiments, adaptive psychophysical methods, and computational modeling.
+              Developing personalized electrical stimulation strategies tailored to each patient's unique auditory system.
             </p>
           </div>
           <div class="eahl-pillar-card" style="--card-color: #6b8f71; --icon-bg: rgba(107, 143, 113, 0.12); --icon-color: #6b8f71;">
             <div class="eahl-pillar-icon">
-              <i class="fas fa-brain"></i>
+              <i class="fas fa-music"></i>
             </div>
-            <h3 class="eahl-pillar-title">Auditory Neuroscience</h3>
+            <h3 class="eahl-pillar-title">Pitch & Spectral Perception</h3>
             <p class="eahl-pillar-desc">
-              Mapping neural health, cortical plasticity, and reorganization using high-density EEG and advanced signal processing.
+              Mapping the limits of pitch sensitivity and spectral resolution to understand why music and speech in noise remain challenging.
             </p>
           </div>
         </div>
@@ -509,15 +426,15 @@ sections:
       text: |
         <div class="eahl-mission-content">
           <h2 class="eahl-mission-quote">
-            Hearing is more than detecting sound—it's the <em>foundation of human connection.</em>
+            Same device. Same surgery.<br><em>Vastly different outcomes.</em>
           </h2>
           <p class="eahl-mission-body">
-            By integrating <strong>computational modeling</strong>, <strong>psychophysical testing</strong>, and <strong>neuroimaging</strong>, we're decoding how the brain processes sound to create better hearing solutions.
+            We're working to understand the biological and technical factors that drive variability in cochlear implant performance — and translating that knowledge into <strong>better clinical outcomes</strong>.
           </p>
           <div class="eahl-values-row">
-            <span class="eahl-value-tag">Open Science</span>
-            <span class="eahl-value-tag">Reproducible Research</span>
-            <span class="eahl-value-tag">Student-Centered</span>
+            <span class="eahl-value-tag">Psychophysics</span>
+            <span class="eahl-value-tag">Electrophysiology</span>
+            <span class="eahl-value-tag">Translational Research</span>
           </div>
         </div>
     design:
@@ -527,28 +444,28 @@ sections:
       css_class: "eahl-mission-section"
 
   # -----------------------------------------------------------------------------
-  # 4. CTA
+  # 4. CTA - COMMENTED OUT (available on Team page instead)
   # -----------------------------------------------------------------------------
-  - block: markdown
-    content:
-      text: |
-        <div class="eahl-cta-card">
-          <h2 class="eahl-cta-title">Join Our Research Team</h2>
-          <p class="eahl-cta-desc">
-            We're actively recruiting researchers and participants to advance auditory neuroscience.
-          </p>
-          <div class="eahl-cta-roles">
-            <span class="eahl-role eahl-role-phd">PhD Students</span>
-            <span class="eahl-role eahl-role-postdoc">Postdoctoral Fellows</span>
-            <span class="eahl-role eahl-role-participant">Study Participants</span>
-          </div>
-          <a href="./contact/" class="eahl-cta-button">
-            Get Involved →
-          </a>
-        </div>
-    design:
-      columns: "1"
-      spacing:
-        padding: ["80px", "20px", "120px", "20px"]
-      css_class: "eahl-cta-section"
+  # - block: markdown
+  #   content:
+  #     text: |
+  #       <div class="eahl-cta-card">
+  #         <h2 class="eahl-cta-title">Join Our Research Team</h2>
+  #         <p class="eahl-cta-desc">
+  #           We're recruiting motivated researchers and cochlear implant users to advance hearing science.
+  #         </p>
+  #         <div class="eahl-cta-roles">
+  #           <span class="eahl-role eahl-role-phd">Graduate Students</span>
+  #           <span class="eahl-role eahl-role-postdoc">Research Assistants</span>
+  #           <span class="eahl-role eahl-role-participant">CI Participants</span>
+  #         </div>
+  #         <a href="./contact/" class="eahl-cta-button">
+  #           Get Involved →
+  #         </a>
+  #       </div>
+  #   design:
+  #     columns: "1"
+  #     spacing:
+  #       padding: ["80px", "20px", "120px", "20px"]
+  #     css_class: "eahl-cta-section"
 ---

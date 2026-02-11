@@ -27,7 +27,7 @@ sections:
           font-family: 'Playfair Display', Georgia, serif !important;
         }
         
-        .team-page p, .team-page span, .team-page a {
+        .team-page p, .team-page span, .team-page a, .team-page li {
           font-family: 'Source Sans 3', -apple-system, sans-serif !important;
         }
         
@@ -222,39 +222,201 @@ sections:
           margin-bottom: 48px !important;
         }
         
-        /* ===== JOIN CTA ===== */
-        .team-cta {
-          background: var(--eahl-navy) !important;
+        /* ===== JOIN CTA - EXPANDED ===== */
+        .team-join-section {
+          background: var(--eahl-cream) !important;
         }
         
-        .team-cta-content {
-          max-width: 650px;
+        .team-join-container {
+          max-width: 1100px;
           margin: 0 auto;
-          text-align: center;
           padding: 0 24px;
         }
         
-        .team-cta-title {
-          font-size: clamp(1.8rem, 3.5vw, 2.5rem) !important;
+        .team-join-header {
+          text-align: center;
+          margin-bottom: 64px;
+        }
+        
+        .team-join-badge {
+          display: inline-block;
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          color: #ffffff;
+          background: var(--eahl-coral);
+          padding: 8px 20px;
+          border-radius: 100px;
+          margin-bottom: 24px;
+        }
+        
+        .team-join-title {
+          font-size: clamp(2rem, 4vw, 2.75rem) !important;
           font-weight: 500 !important;
-          color: #ffffff !important;
+          color: var(--eahl-navy) !important;
           margin-bottom: 16px !important;
           letter-spacing: -0.02em;
         }
         
-        .team-cta-title em {
+        .team-join-subtitle {
+          font-size: 1.15rem;
+          color: var(--eahl-text-light);
+          line-height: 1.7;
+          max-width: 650px;
+          margin: 0 auto;
+        }
+        
+        .team-join-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 32px;
+          margin-bottom: 64px;
+        }
+        
+        .team-join-card {
+          background: #ffffff;
+          border: 1px solid #e5e7eb;
+          border-radius: 20px;
+          padding: 40px 32px;
+          position: relative;
+          transition: all 0.3s ease;
+        }
+        
+        .team-join-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: var(--card-accent);
+          border-radius: 20px 20px 0 0;
+        }
+        
+        .team-join-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 24px 48px rgba(10, 22, 40, 0.1);
+          border-color: transparent;
+        }
+        
+        .team-join-card-icon {
+          width: 56px;
+          height: 56px;
+          border-radius: 14px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          margin-bottom: 24px;
+          background: var(--icon-bg);
+          color: var(--icon-color);
+        }
+        
+        .team-join-card-title {
+          font-size: 1.35rem !important;
+          font-weight: 500 !important;
+          color: var(--eahl-navy) !important;
+          margin-bottom: 12px !important;
+        }
+        
+        .team-join-card-desc {
+          font-size: 1rem;
+          color: var(--eahl-text-light);
+          line-height: 1.7;
+          margin-bottom: 20px;
+        }
+        
+        .team-join-card-list {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 24px 0;
+        }
+        
+        .team-join-card-list li {
+          position: relative;
+          padding-left: 20px;
+          margin-bottom: 10px;
+          font-size: 0.95rem;
+          color: var(--eahl-text);
+          line-height: 1.5;
+        }
+        
+        .team-join-card-list li::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 8px;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: var(--card-accent);
+        }
+        
+        .team-join-card-status {
+          display: inline-block;
+          font-size: 0.8rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          padding: 6px 14px;
+          border-radius: 6px;
+        }
+        
+        .status-recruiting {
+          background: rgba(107, 143, 113, 0.15);
+          color: var(--eahl-sage);
+        }
+        
+        .status-limited {
+          background: rgba(224, 122, 95, 0.15);
+          color: var(--eahl-coral);
+        }
+        
+        /* Join bottom CTA */
+        .team-join-bottom {
+          background: var(--eahl-navy);
+          border-radius: 24px;
+          padding: 56px 48px;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .team-join-bottom::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(ellipse at 50% 0%, rgba(74, 144, 164, 0.2) 0%, transparent 60%);
+          pointer-events: none;
+        }
+        
+        .team-join-bottom-content {
+          position: relative;
+          z-index: 2;
+        }
+        
+        .team-join-bottom-title {
+          font-size: clamp(1.5rem, 3vw, 2rem) !important;
+          font-weight: 500 !important;
+          color: #ffffff !important;
+          margin-bottom: 16px !important;
+        }
+        
+        .team-join-bottom-title em {
           font-style: italic;
           color: var(--eahl-accent);
         }
         
-        .team-cta-desc {
-          font-size: 1.1rem;
+        .team-join-bottom-desc {
+          font-size: 1.05rem;
           color: rgba(255, 255, 255, 0.75);
           line-height: 1.7;
-          margin-bottom: 36px;
+          max-width: 500px;
+          margin: 0 auto 32px auto;
         }
         
-        .team-cta-btn {
+        .team-join-btn {
           display: inline-flex;
           align-items: center;
           gap: 10px;
@@ -268,7 +430,7 @@ sections:
           transition: all 0.3s ease;
         }
         
-        .team-cta-btn:hover {
+        .team-join-btn:hover {
           background: var(--eahl-accent);
           color: #ffffff !important;
           transform: translateY(-3px);
@@ -279,6 +441,9 @@ sections:
         @media (max-width: 768px) {
           .team-hero-content { padding: 0 20px; }
           .section-intro { margin-bottom: 40px; }
+          .team-join-card { padding: 32px 24px; }
+          .team-join-bottom { padding: 40px 24px; border-radius: 16px; }
+          .team-join-grid { grid-template-columns: 1fr; }
         }
         </style>
     design:
@@ -299,7 +464,7 @@ sections:
           </h1>
           <div class="team-hero-divider"></div>
           <p class="team-hero-desc">
-            A multidisciplinary team of audiologists, engineers, and neuroscientists working together to solve the puzzles of perception.
+            A growing team of researchers dedicated to understanding variability in cochlear implant outcomes.
           </p>
         </div>
     design:
@@ -316,11 +481,8 @@ sections:
       text: |
         <div class="section-intro">
           <span class="section-number">01</span>
-          <h2 class="section-title">Faculty</h2>
+          <h2 class="section-title">Principal Investigator</h2>
           <div class="section-divider"></div>
-          <p class="section-desc">
-            Leading researchers driving innovation in auditory neuroscience and hearing restoration.
-          </p>
         </div>
     design:
       columns: "1"
@@ -357,10 +519,10 @@ sections:
       text: |
         <div class="section-intro">
           <span class="section-number">02</span>
-          <h2 class="section-title">Team</h2>
+          <h2 class="section-title">Lab Members</h2>
           <div class="section-divider"></div>
           <p class="section-desc">
-            Graduate students, researchers, and collaborators advancing our mission every day.
+            Graduate students and research assistants advancing our mission.
           </p>
         </div>
     design:
@@ -404,7 +566,7 @@ sections:
           <h2 class="section-title">Alumni</h2>
           <div class="section-divider"></div>
           <p class="section-desc">
-            Former team members continuing to make an impact in auditory science around the world.
+            Former team members continuing to make an impact in hearing science.
           </p>
         </div>
     design:
@@ -435,25 +597,89 @@ sections:
       css_class: "team-page"
 
   # -----------------------------------------------------------------------------
-  # 8. JOIN CTA
+  # 8. JOIN CTA - EXPANDED
   # -----------------------------------------------------------------------------
   - block: markdown
     content:
       text: |
-        <div class="team-cta-content">
-          <h2 class="team-cta-title">
-            Want to join <em>our team?</em>
-          </h2>
-          <p class="team-cta-desc">
-            We're always looking for curious minds passionate about hearing science.
-          </p>
-          <a href="../join/" class="team-cta-btn">
-            View Opportunities <span>→</span>
-          </a>
+        <div class="team-join-container">
+          <div class="team-join-header">
+            <span class="team-join-badge">Now Recruiting</span>
+            <h2 class="team-join-title">Build the Lab With Us</h2>
+            <p class="team-join-subtitle">
+              We're a new lab looking for motivated individuals to help shape our research direction. This is a rare opportunity to join at the ground floor and grow with us.
+            </p>
+          </div>
+          <div class="team-join-grid">
+            <!-- Graduate Students -->
+            <div class="team-join-card" style="--card-accent: #4a90a4; --icon-bg: rgba(74, 144, 164, 0.12); --icon-color: #4a90a4;">
+              <div class="team-join-card-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h3 class="team-join-card-title">Graduate Students</h3>
+              <p class="team-join-card-desc">
+                Seeking PhD and Master's students in Audiology, Speech & Hearing Science, or related fields.
+              </p>
+              <ul class="team-join-card-list">
+                <li>Hands-on cochlear implant research experience</li>
+                <li>Training in psychophysics and electrophysiology</li>
+                <li>Mentorship in grant writing and publishing</li>
+                <li>Conference travel support</li>
+              </ul>
+              <span class="team-join-card-status status-recruiting">Actively Recruiting</span>
+            </div>
+            <!-- Research Assistants -->
+            <div class="team-join-card" style="--card-accent: #e07a5f; --icon-bg: rgba(224, 122, 95, 0.12); --icon-color: #e07a5f;">
+              <div class="team-join-card-icon">
+                <i class="fas fa-flask"></i>
+              </div>
+              <h3 class="team-join-card-title">Research Assistants</h3>
+              <p class="team-join-card-desc">
+                Undergraduate and post-baccalaureate positions available for students interested in hearing research.
+              </p>
+              <ul class="team-join-card-list">
+                <li>Data collection with cochlear implant users</li>
+                <li>Learn MATLAB, R, and signal processing</li>
+                <li>Ideal preparation for graduate school</li>
+                <li>Flexible hours around class schedules</li>
+              </ul>
+              <span class="team-join-card-status status-recruiting">Actively Recruiting</span>
+            </div>
+            <!-- Study Participants -->
+            <div class="team-join-card" style="--card-accent: #6b8f71; --icon-bg: rgba(107, 143, 113, 0.12); --icon-color: #6b8f71;">
+              <div class="team-join-card-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3 class="team-join-card-title">Study Participants</h3>
+              <p class="team-join-card-desc">
+                We're recruiting cochlear implant users and individuals with normal hearing for our research studies.
+              </p>
+              <ul class="team-join-card-list">
+                <li>Compensation provided for your time</li>
+                <li>Flexible scheduling</li>
+                <li>Contribute to improving CI technology</li>
+                <li>All CI brands and experience levels welcome</li>
+              </ul>
+              <span class="team-join-card-status status-recruiting">Enrolling Now</span>
+            </div>
+          </div>
+          <div class="team-join-bottom">
+            <div class="team-join-bottom-content">
+              <h3 class="team-join-bottom-title">
+                Ready to <em>get started?</em>
+              </h3>
+              <p class="team-join-bottom-desc">
+                Send us an email with your CV and a brief description of your interests. We'd love to hear from you.
+              </p>
+              <a href="../contact/" class="team-join-btn">
+                Contact Us →
+              </a>
+            </div>
+          </div>
         </div>
     design:
       columns: "1"
       spacing:
-        padding: ["100px", "20px", "100px", "20px"]
-      css_class: "team-page team-cta"
+        padding: ["100px", "20px", "120px", "20px"]
+      css_class: "team-page team-join-section"
 ---

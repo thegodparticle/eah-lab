@@ -1,0 +1,32 @@
+# =============================================================================
+# ELECTRIC & ACOUSTIC HEARING LAB - ROBOTS.TXT
+# =============================================================================
+# File: static/robots.txt
+# =============================================================================
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://eahlab.com/sitemap.xml
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /decap-cms/
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: //head-end.html
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Google Scholar specific
+User-agent: Googlebot-Scholar
+Allow: /publication/

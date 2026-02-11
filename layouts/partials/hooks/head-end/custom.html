@@ -1,0 +1,64 @@
+{{/* ==========================================================================
+   ELECTRIC & ACOUSTIC HEARING LAB - HEAD END HOOK
+   ==========================================================================
+   File: layouts/partials/hooks/head-end/custom.html
+   
+   This file adds custom elements to the end of <head> section.
+   ========================================================================== */}}
+
+{{/* Preconnect to Google Fonts for faster loading */}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+{{/* Load custom fonts */}}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+{{/* Additional meta tags for SEO */}}
+<meta name="author" content="Electric & Acoustic Hearing Lab">
+<meta name="robots" content="index, follow">
+
+{{/* Open Graph enhancements */}}
+<meta property="og:site_name" content="Electric & Acoustic Hearing Lab">
+<meta property="og:locale" content="en_US">
+
+{{/* Twitter Card */}}
+<meta name="twitter:card" content="summary_large_image">
+
+{{/* Theme color for mobile browsers */}}
+<meta name="theme-color" content="#4a90a4">
+<meta name="msapplication-TileColor" content="#0a1628">
+
+{{/* Structured Data for Google (Organization) */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ResearchOrganization",
+  "name": "Electric & Acoustic Hearing Lab",
+  "alternateName": "EAHL",
+  "url": "https://eahlab.com",
+  "description": "Research laboratory investigating psychoacoustics, auditory neuroscience, and cochlear implants at the University of South Alabama.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "5721 USA Drive N",
+    "addressLocality": "Mobile",
+    "addressRegion": "AL",
+    "postalCode": "36688",
+    "addressCountry": "US"
+  },
+  "parentOrganization": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of South Alabama",
+    "url": "https://www.southalabama.edu"
+  },
+  "member": {
+    "@type": "Person",
+    "name": "Dr. Niyazi Ömer Arslan",
+    "jobTitle": "Assistant Professor & Lab Director",
+    "email": "niyaziomerarslan@gmail.com"
+  },
+  "sameAs": [
+    "https://scholar.google.com/citations?user=cTzzqvMAAAAJ",
+    "https://github.com/thegodparticle"
+  ]
+}
+</script>

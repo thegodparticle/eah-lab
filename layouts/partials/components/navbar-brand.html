@@ -1,0 +1,37 @@
+{{/* 
+  Custom Navbar Brand for Electric & Acoustic Hearing Lab
+  
+  File location: layouts/partials/components/navbar-brand.html
+  
+  If this doesn't work directly, you may need to override the full navbar partial.
+  Alternative location: layouts/partials/site_header.html
+*/}}
+
+<a class="navbar-brand" href="{{ site.Home.RelPermalink }}">
+  {{/* Animated Logo Icon */}}
+  <div class="eahl-logo">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {{/* Ear outline */}}
+      <path d="M6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 14.5 16.5 16.5 15 17.5C13.5 18.5 13 19.5 13 21" 
+            stroke="currentColor" 
+            stroke-width="1.5" 
+            stroke-linecap="round"
+            opacity="0.4"/>
+      {{/* Pulse/wave line - animated */}}
+      <path class="pulse-line" 
+            d="M3 12H6L8 8L11 16L14 10L16 12H21" 
+            stroke="currentColor" 
+            stroke-width="2" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"/>
+    </svg>
+  </div>
+  
+  {{/* Lab Name */}}
+  <div class="eahl-name">
+    <span class="eahl-name-main">
+      Electric <span class="highlight">&</span> Acoustic Hearing Lab
+    </span>
+    <span class="eahl-name-sub">University of South Alabama</span>
+  </div>
+</a>

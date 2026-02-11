@@ -49,19 +49,19 @@ social:
     link: mailto:narslan@southalabama.edu
     label: Email
     display:
-      header: true
+      header: false
   - icon: google-scholar
     icon_pack: ai
     link: https://scholar.google.com/citations?user=cTzzqvMAAAAJ&hl=en
     label: Google Scholar
     display:
-      header: true
+      header: false
   - icon: orcid
     icon_pack: ai
     link: https://orcid.org/0000-0000-0000-0000
     label: ORCID
     display:
-      header: true
+      header: false
   - icon: researchgate
     icon_pack: ai
     link: https://www.researchgate.net/profile/Niyazi-Arslan
