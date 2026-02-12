@@ -361,7 +361,7 @@ sections:
             <span class="eahl-hero-title-accent">Hearing Lab</span>
           </h1>
           <p class="eahl-hero-subtitle">
-            Understanding why cochlear implant outcomes vary so dramatically — and developing personalized approaches to close the gap.
+            Understanding why cochlear implant outcomes vary so dramatically and developing personalized approaches to close the gap.
           </p>
           <p class="eahl-hero-affiliation">University of South Alabama</p>
           <div class="eahl-waveform">
@@ -442,7 +442,7 @@ sections:
             Same device. Same surgery.<br><em>Vastly different outcomes.</em>
           </h2>
           <p class="eahl-mission-body">
-            We're working to understand the biological and technical factors that drive variability in cochlear implant performance — and translating that knowledge into <strong>better clinical outcomes</strong>.
+            We're working to understand the biological and technical factors that drive variability in cochlear implant performance and translating that knowledge into <strong>better clinical outcomes</strong>.
           </p>
           <div class="eahl-values-row">
             <span class="eahl-value-tag">Psychophysics</span>
