@@ -533,8 +533,8 @@
 
 # Published with
 
-- id: published_with
-  translation: Made with {hugoblox}.
+#- id: published_with
+#  translation: Made with {hugoblox}.
 
 - id: poweredby_button
   translation: 'Build yours →'
