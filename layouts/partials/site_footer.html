@@ -1,0 +1,19 @@
+{{/* ELECTRIC & ACOUSTIC HEARING LAB - SITE FOOTER */}}
+{{/* Removes default wrapper for full-width footer */}}
+
+<style>
+/* Override any theme footer constraints */
+.page-footer,
+footer.site-footer {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.page-footer .container,
+footer.site-footer .container {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+</style>
+
+{{ partial "custom_footer.html" . }}

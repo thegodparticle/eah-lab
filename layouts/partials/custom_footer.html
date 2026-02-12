@@ -1,0 +1,118 @@
+{{/* ==========================================================================
+   ELECTRIC & ACOUSTIC HEARING LAB - CUSTOM FOOTER
+   ==========================================================================
+   Minimal modern footer design
+   ========================================================================== */}}
+
+<style>
+/* ===== MINIMAL FOOTER ===== */
+.eahl-footer {
+  background: #0a1628;
+  font-family: 'Source Sans 3', -apple-system, sans-serif;
+  position: relative;
+  width: 100%;
+}
+
+.eahl-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4a90a4, #e07a5f, #6b8f71);
+}
+
+.eahl-footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left - Brand */
+.eahl-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+}
+
+.eahl-footer-brand strong {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+/* Center - Copyright */
+.eahl-footer-copyright {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.eahl-footer-copyright a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.eahl-footer-copyright a:hover {
+  color: #4a90a4;
+}
+
+/* Right - Social */
+.eahl-footer-social {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.eahl-footer-social a {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.eahl-footer-social a:hover {
+  background: #4a90a4;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .eahl-footer-content {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 24px;
+    text-align: center;
+  }
+}
+</style>
+
+<div class="eahl-footer">
+  <div class="eahl-footer-content">
+    
+    <div class="eahl-footer-brand">
+      <strong>Electric & Acoustic Hearing Lab</strong>
+      <span>·</span>
+      <span>University of South Alabama</span>
+    </div>
+    
+    <div class="eahl-footer-copyright">
+      © {{ now.Year }} · <a href="mailto:niyaziarslan@southalabama.edu">niyaziarslan@southalabama.edu</a>
+    </div>
+    
+
+    
+  </div>
+</div>
