@@ -1,7 +1,7 @@
 {{/* ==========================================================================
    ELECTRIC & ACOUSTIC HEARING LAB - HEAD END HOOK
    ==========================================================================
-   File: layouts/partials/hooks/head-end/custom.html
+   File: layouts/partials/hooks/head-end.html
    
    This file adds custom elements to the end of <head> section.
    ========================================================================== */}}
@@ -14,51 +14,230 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 {{/* Additional meta tags for SEO */}}
-<meta name="author" content="Electric & Acoustic Hearing Lab">
-<meta name="robots" content="index, follow">
+<meta name="author" content="Dr. Niyazi Ömer Arslan">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="keywords" content="cochlear implant research, auditory neuroscience, hearing lab, neural health, pitch perception, CI psychophysics, University of South Alabama, hearing research, audiology research">
 
-{{/* Open Graph enhancements */}}
+{{/* Open Graph enhancements for social sharing */}}
 <meta property="og:site_name" content="Electric & Acoustic Hearing Lab">
 <meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ if .IsHome }}Electric & Acoustic Hearing Lab | Cochlear Implant Research{{ else }}{{ .Title }} | EAHL{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}Cochlear implant research lab at University of South Alabama investigating neural health, personalized stimulation strategies, and pitch perception.{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="https://eahlab.com/media/logo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 {{/* Twitter Card */}}
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@niyazioarslan">
+<meta name="twitter:creator" content="@niyazioarslan">
+<meta name="twitter:title" content="{{ if .IsHome }}Electric & Acoustic Hearing Lab{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}Cochlear implant research at University of South Alabama.{{ end }}">
+<meta name="twitter:image" content="https://eahlab.com/media/logo.png">
 
 {{/* Theme color for mobile browsers */}}
-<meta name="theme-color" content="#4a90a4">
+<meta name="theme-color" content="#0a1628">
 <meta name="msapplication-TileColor" content="#0a1628">
 
-{{/* Structured Data for Google (Organization) */}}
+{{/* Canonical URL */}}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{/* ========================================================================
+    SCHEMA.ORG STRUCTURED DATA
+    ======================================================================== */}}
+
+{{/* 1. Organization Schema - Tells Google this is a research lab */}}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ResearchOrganization",
+  "@id": "https://eahlab.com/#organization",
   "name": "Electric & Acoustic Hearing Lab",
-  "alternateName": "EAHL",
+  "alternateName": ["EAHL", "Electric and Acoustic Hearing Lab", "Arslan Lab"],
   "url": "https://eahlab.com",
-  "description": "Research laboratory investigating psychoacoustics, auditory neuroscience, and cochlear implants at the University of South Alabama.",
+  "logo": "https://eahlab.com/media/logo.png",
+  "description": "Research laboratory investigating cochlear implant psychophysics, neural health assessment, and personalized electrical stimulation strategies to improve hearing outcomes.",
+  "foundingDate": "2025",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "5721 USA Drive N",
+    "streetAddress": "5721 USA Drive N, Health Sciences Building",
     "addressLocality": "Mobile",
     "addressRegion": "AL",
     "postalCode": "36688",
     "addressCountry": "US"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "30.6954",
+    "longitude": "-88.1780"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "narslan@southalabama.edu",
+    "contactType": "research inquiries"
+  },
   "parentOrganization": {
     "@type": "CollegeOrUniversity",
     "name": "University of South Alabama",
-    "url": "https://www.southalabama.edu"
+    "url": "https://www.southalabama.edu",
+    "sameAs": "https://en.wikipedia.org/wiki/University_of_South_Alabama"
   },
-  "member": {
-    "@type": "Person",
-    "name": "Dr. Niyazi Ömer Arslan",
-    "jobTitle": "Assistant Professor & Lab Director",
-    "email": "niyaziomerarslan@gmail.com"
+  "department": {
+    "@type": "Organization",
+    "name": "Department of Speech Pathology and Audiology"
   },
+  "knowsAbout": [
+    "Cochlear Implants",
+    "Auditory Neuroscience", 
+    "Psychoacoustics",
+    "Neural Health Assessment",
+    "Pitch Perception",
+    "Electrical Stimulation",
+    "Hearing Research"
+  ],
   "sameAs": [
     "https://scholar.google.com/citations?user=cTzzqvMAAAAJ",
-    "https://github.com/thegodparticle"
+    "https://github.com/thegodparticle",
+    "https://www.researchgate.net/profile/Niyazi-Arslan"
   ]
+}
+</script>
+
+{{/* 2. Person Schema - For the lab director */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://eahlab.com/#director",
+  "name": "Niyazi Ömer Arslan",
+  "givenName": "Niyazi Ömer",
+  "familyName": "Arslan",
+  "honorificPrefix": "Dr.",
+  "honorificSuffix": "Ph.D.",
+  "jobTitle": "Assistant Professor",
+  "worksFor": {
+    "@id": "https://eahlab.com/#organization"
+  },
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of South Alabama"
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Arizona State University"
+    }
+  ],
+  "url": "https://niyaziarslan.com",
+  "email": "narslan@southalabama.edu",
+  "image": "https://eahlab.com/authors/admin/avatar.jpg",
+  "sameAs": [
+    "https://scholar.google.com/citations?user=cTzzqvMAAAAJ",
+    "https://orcid.org/0000-0000-0000-0000",
+    "https://www.researchgate.net/profile/Niyazi-Arslan",
+    "https://niyaziarslan.com"
+  ],
+  "knowsAbout": [
+    "Cochlear Implants",
+    "Auditory Neuroscience",
+    "Psychoacoustics",
+    "Pitch Perception"
+  ]
+}
+</script>
+
+{{/* 3. WebSite Schema - For sitelinks search box */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://eahlab.com/#website",
+  "name": "Electric & Acoustic Hearing Lab",
+  "url": "https://eahlab.com",
+  "publisher": {
+    "@id": "https://eahlab.com/#organization"
+  },
+  "description": "Cochlear implant research lab at University of South Alabama",
+  "inLanguage": "en-US"
+}
+</script>
+
+{{/* 4. BreadcrumbList Schema - Helps Google understand site structure */}}
+{{ if not .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://eahlab.com/"
+    }
+    {{ if .Parent }}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ .Parent.Title }}",
+      "item": "{{ .Parent.Permalink }}"
+    }
+    ,{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ .Title }}",
+      "item": "{{ .Permalink }}"
+    }
+    {{ else }}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ .Title }}",
+      "item": "{{ .Permalink }}"
+    }
+    {{ end }}
+  ]
+}
+</script>
+{{ end }}
+
+{{/* 5. EducationalOrganization Schema - For student recruitment */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "@id": "https://eahlab.com/#education",
+  "name": "Electric & Acoustic Hearing Lab Graduate Program",
+  "url": "https://eahlab.com/contact/",
+  "description": "PhD, AuD, and Master's research opportunities in cochlear implant and hearing science research",
+  "parentOrganization": {
+    "@id": "https://eahlab.com/#organization"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Research Opportunities",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "EducationalOccupationalProgram",
+          "name": "PhD in Speech and Hearing Science",
+          "educationalProgramMode": "full-time",
+          "timeToComplete": "P5Y"
+        }
+      },
+      {
+        "@type": "Offer", 
+        "itemOffered": {
+          "@type": "EducationalOccupationalProgram",
+          "name": "Research Assistant Position",
+          "educationalProgramMode": "part-time"
+        }
+      }
+    ]
+  }
 }
 </script>
