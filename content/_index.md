@@ -3,16 +3,25 @@ title: Home
 type: landing
 date: "2026-01-01"
 
-sitemap:
-  priority: 1.0
-  changefreq: weekly
-
 design:
   css_class: "eahl-landing"
 
 sections:
   # -----------------------------------------------------------------------------
-  # CUSTOM STYLES (as a blank block at top)
+  # SCHEMA.ORG STRUCTURED DATA (invisible - for SEO only)
+  # -----------------------------------------------------------------------------
+  - block: markdown
+    content:
+      text: |
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchOrganization","name":"Electric & Acoustic Hearing Lab","alternateName":"EAHL","url":"https://eahlab.com","logo":"https://eahlab.com/media/logo.png","description":"Cochlear implant research lab at University of South Alabama investigating neural health and personalized stimulation strategies.","foundingDate":"2025","address":{"@type":"PostalAddress","streetAddress":"5721 USA Drive N","addressLocality":"Mobile","addressRegion":"AL","postalCode":"36688","addressCountry":"US"},"parentOrganization":{"@type":"CollegeOrUniversity","name":"University of South Alabama","url":"https://www.southalabama.edu"},"sameAs":["https://scholar.google.com/citations?user=cTzzqvMAAAAJ","https://github.com/thegodparticle"]}</script>
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Niyazi Ömer Arslan","honorificPrefix":"Dr.","honorificSuffix":"Ph.D.","jobTitle":"Assistant Professor","affiliation":{"@type":"CollegeOrUniversity","name":"University of South Alabama"},"url":"https://niyaziarslan.com","email":"narslan@southalabama.edu","sameAs":["https://scholar.google.com/citations?user=cTzzqvMAAAAJ","https://www.researchgate.net/profile/Niyazi-Arslan"]}</script>
+    design:
+      columns: "1"
+      spacing:
+        padding: ["0", "0", "0", "0"]
+
+  # -----------------------------------------------------------------------------
+  # CUSTOM STYLES
   # -----------------------------------------------------------------------------
   - block: markdown
     content:
@@ -352,7 +361,7 @@ sections:
             <span class="eahl-hero-title-accent">Hearing Lab</span>
           </h1>
           <p class="eahl-hero-subtitle">
-            Understanding why cochlear implant outcomes vary so dramatically and developing personalized approaches to close the gap.
+            Understanding why cochlear implant outcomes vary so dramatically — and developing personalized approaches to close the gap.
           </p>
           <p class="eahl-hero-affiliation">University of South Alabama</p>
           <div class="eahl-waveform">
@@ -433,7 +442,7 @@ sections:
             Same device. Same surgery.<br><em>Vastly different outcomes.</em>
           </h2>
           <p class="eahl-mission-body">
-            We're working to understand the biological and technical factors that drive variability in cochlear implant performance and translating that knowledge into <strong>better clinical outcomes</strong>.
+            We're working to understand the biological and technical factors that drive variability in cochlear implant performance — and translating that knowledge into <strong>better clinical outcomes</strong>.
           </p>
           <div class="eahl-values-row">
             <span class="eahl-value-tag">Psychophysics</span>
