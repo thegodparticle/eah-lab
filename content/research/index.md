@@ -2,6 +2,11 @@
 title: Research Overview
 date: "2026-01-01"
 type: landing
+
+sitemap:
+  priority: 0.9
+  changefreq: monthly
+  
 sections:
   # -----------------------------------------------------------------------------
   # CUSTOM STYLES

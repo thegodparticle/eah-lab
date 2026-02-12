@@ -1,9 +1,9 @@
 ---
 # Display name
-title: Niyazi Ömer Arslan, PhD
+title: Niyazi Arslan, PhD
 
 # Full name (for SEO)
-first_name: Niyazi Ömer
+first_name: Niyazi 
 last_name: Arslan
 
 # Is this the primary user of the site?
@@ -18,16 +18,7 @@ organizations:
     url: 'https://www.southalabama.edu/'
 
 # Short bio (displayed in user profile at bottom of posts)
-bio: Investigating the neural basis of auditory perception to transform hearing restoration for cochlear implant users.
-
-# Research Interests (Hugo will display these automatically)
-interests:
-  - Cochlear Implant Psychophysics
-  - Neural Coding of Sound
-  - Electrical Field Shaping
-  - Auditory Cortical Plasticity
-  - High-Density EEG
-  - Computational Modeling
+bio: Understanding variability in cochlear implant outcomes through neural health assessment and personalized stimulation strategies.
 
 # Education (Hugo will display these automatically)
 education:
@@ -48,6 +39,12 @@ social:
     icon_pack: fas
     link: mailto:narslan@southalabama.edu
     label: Email
+    display:
+      header: false
+  - icon: globe
+    icon_pack: fas
+    link: https://niyaziarslan.com
+    label: Personal Website
     display:
       header: false
   - icon: google-scholar
@@ -241,9 +238,10 @@ article.article h3,
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 16px;
   background: var(--icon-bg);
+  color: var(--icon-color);
 }
 
 .bio-focus-title {
@@ -342,6 +340,29 @@ article.article h3,
   z-index: 1;
 }
 
+/* ===== PERSONAL SITE LINK ===== */
+.bio-personal-site {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--eahl-accent) !important;
+  text-decoration: none !important;
+  padding: 10px 20px;
+  background: rgba(74, 144, 164, 0.08);
+  border: 1px solid rgba(74, 144, 164, 0.2);
+  border-radius: 100px;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+}
+
+.bio-personal-site:hover {
+  background: var(--eahl-accent);
+  color: #ffffff !important;
+  border-color: var(--eahl-accent);
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .bio-focus-grid { grid-template-columns: 1fr; }
@@ -352,42 +373,56 @@ article.article h3,
 
 <div class="bio-container">
 
-**Niyazi Ömer Arslan** is an Assistant Professor in the Department of Speech Pathology and Audiology at the University of South Alabama and founding director of the **Electric & Acoustic Hearing Lab**.
+**Niyazi  Arslan** is an Assistant Professor in the Department of Speech Pathology and Audiology at the University of South Alabama and founding director of the **Electric & Acoustic Hearing Lab**.
+
+<a href="https://niyaziarslan.com" target="_blank" class="bio-personal-site">
+  <i class="fas fa-globe"></i> Visit Personal Website
+</a>
 
 <div class="bio-mission">
-  <span class="bio-mission-label">Our Mission</span>
-  <p class="bio-mission-text">Bridging the gap between basic auditory neuroscience and clinical rehabilitation to improve hearing outcomes for the 1+ million cochlear implant users worldwide.</p>
+  <span class="bio-mission-label">The Central Question</span>
+  <p class="bio-mission-text">Why do two patients with the same cochlear implant, implanted by the same surgeon, have vastly different outcomes? Our lab seeks to understand the neural and technical factors that drive this variability—and translate that knowledge into personalized clinical solutions.</p>
 </div>
 
 <p class="bio-intro">
-Dr. Arslan's research program investigates how neural health influences the efficacy of electrical stimulation strategies in cochlear implants. Using a combination of <strong>psychophysical testing</strong>, <strong>computational modeling</strong>, and <strong>high-density EEG</strong>, his lab aims to:
+Dr. Arslan's research focuses on the role of <strong>auditory nerve condition</strong> in cochlear implant efficacy. His work investigates how patterns of neural degeneration—from myelin sheath thinning to peripheral axon loss—affect both the absolute properties and relative changes in psychophysical and electrophysiological responses to electrical stimulation.
+</p>
+
+<p class="bio-intro">
+By combining <strong>psychophysical methods</strong>, <strong>electrophysiology</strong>, and <strong>computational approaches</strong>, the lab aims to:
 </p>
 
 <ul class="bio-aims">
-  <li>Optimize electrical field shaping techniques for improved pitch perception</li>
-  <li>Quantify neural survival patterns and their impact on hearing outcomes</li>
-  <li>Develop patient-specific stimulation strategies based on neural health biomarkers</li>
-  <li>Understand cortical plasticity following cochlear implantation</li>
+  <li>Develop reliable, objective measures of neural health that can be assessed clinically</li>
+  <li>Understand how site-specific neural degeneration limits pitch perception and spectral resolution</li>
+  <li>Design personalized stimulation strategies matched to each patient's neural condition</li>
+  <li>Translate research findings into improved clinical fitting procedures</li>
 </ul>
 
 <div class="bio-section">
-  <h3 class="bio-section-title">Current Research Focus</h3>
+  <h3 class="bio-section-title">Research Focus Areas</h3>
   
   <div class="bio-focus-grid">
-    <div class="bio-focus-card" style="--card-accent: #4a90a4; --icon-bg: rgba(74, 144, 164, 0.12);">
-      <div class="bio-focus-icon">🔬</div>
+    <div class="bio-focus-card" style="--card-accent: #4a90a4; --icon-bg: rgba(74, 144, 164, 0.12); --icon-color: #4a90a4;">
+      <div class="bio-focus-icon">
+        <i class="fas fa-heartbeat"></i>
+      </div>
       <h4 class="bio-focus-title">Neural Health Assessment</h4>
-      <p class="bio-focus-desc">Developing objective measures of auditory nerve survival using electrophysiology and computational modeling.</p>
+      <p class="bio-focus-desc">Developing and validating measures to infer auditory nerve survival patterns from psychophysical and electrophysiological responses in CI users.</p>
     </div>
-    <div class="bio-focus-card" style="--card-accent: #e07a5f; --icon-bg: rgba(224, 122, 95, 0.12);">
-      <div class="bio-focus-icon">⚡</div>
-      <h4 class="bio-focus-title">Focused Stimulation</h4>
-      <p class="bio-focus-desc">Testing current focusing strategies including triphasic pulses to enhance spectral resolution.</p>
+    <div class="bio-focus-card" style="--card-accent: #e07a5f; --icon-bg: rgba(224, 122, 95, 0.12); --icon-color: #e07a5f;">
+      <div class="bio-focus-icon">
+        <i class="fas fa-sliders-h"></i>
+      </div>
+      <h4 class="bio-focus-title">Personalized Stimulation</h4>
+      <p class="bio-focus-desc">Testing how stimulation parameters—including polarity, pulse shape, and current focusing—can be optimized based on local neural condition.</p>
     </div>
-    <div class="bio-focus-card" style="--card-accent: #6b8f71; --icon-bg: rgba(107, 143, 113, 0.12);">
-      <div class="bio-focus-icon">🧠</div>
-      <h4 class="bio-focus-title">Cortical Plasticity</h4>
-      <p class="bio-focus-desc">Mapping auditory cortex reorganization patterns using high-density EEG recordings.</p>
+    <div class="bio-focus-card" style="--card-accent: #6b8f71; --icon-bg: rgba(107, 143, 113, 0.12); --icon-color: #6b8f71;">
+      <div class="bio-focus-icon">
+        <i class="fas fa-music"></i>
+      </div>
+      <h4 class="bio-focus-title">Pitch & Spectral Perception</h4>
+      <p class="bio-focus-desc">Investigating the perceptual limits of place-pitch sensitivity and how neural health constrains spectral resolution in electrical hearing.</p>
     </div>
   </div>
 </div>
@@ -399,11 +434,11 @@ Dr. Arslan's research program investigates how neural health influences the effi
     <div class="bio-values-grid">
       <div class="bio-value-item">
         <div class="bio-value-icon">
-          <i class="fas fa-globe"></i>
+          <i class="fas fa-flask"></i>
         </div>
         <div class="bio-value-text">
-          <div class="bio-value-title">Open Science</div>
-          <div class="bio-value-desc">Sharing code, data, and analysis pipelines publicly</div>
+          <div class="bio-value-title">Translational Focus</div>
+          <div class="bio-value-desc">Research that moves from bench to clinic</div>
         </div>
       </div>  
       <div class="bio-value-item">
@@ -412,7 +447,7 @@ Dr. Arslan's research program investigates how neural health influences the effi
         </div>
         <div class="bio-value-text">
           <div class="bio-value-title">Mentorship</div>
-          <div class="bio-value-desc">Training the next generation of auditory scientists</div>
+          <div class="bio-value-desc">Training the next generation of hearing scientists</div>
         </div>
       </div>   
       <div class="bio-value-item">
@@ -420,8 +455,8 @@ Dr. Arslan's research program investigates how neural health influences the effi
           <i class="fas fa-check-double"></i>
         </div>
         <div class="bio-value-text">
-          <div class="bio-value-title">Reproducibility</div>
-          <div class="bio-value-desc">Rigorous methodology and transparent reporting</div>
+          <div class="bio-value-title">Rigor</div>
+          <div class="bio-value-desc">Transparent methods and reproducible results</div>
         </div>
       </div>
     </div>
@@ -429,7 +464,7 @@ Dr. Arslan's research program investigates how neural health influences the effi
 </div>
 
 <div class="bio-quote">
-  <p>The future of cochlear implants lies not just in better hardware, but in understanding and leveraging the brain's remarkable plasticity.</p>
+  <p>The key to improving cochlear implant outcomes may lie not in building better devices, but in understanding and adapting to each patient's unique auditory neurobiology.</p>
 </div>
 
 </div>

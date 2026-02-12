@@ -597,89 +597,25 @@ sections:
       css_class: "team-page"
 
   # -----------------------------------------------------------------------------
-  # 8. JOIN CTA - EXPANDED
+  # 8. JOIN CTA - SIMPLE LINK TO JOIN PAGE
   # -----------------------------------------------------------------------------
   - block: markdown
     content:
       text: |
-        <div class="team-join-container">
-          <div class="team-join-header">
-            <span class="team-join-badge">Now Recruiting</span>
-            <h2 class="team-join-title">Build the Lab With Us</h2>
-            <p class="team-join-subtitle">
-              We're a new lab looking for motivated individuals to help shape our research direction. This is a rare opportunity to join at the ground floor and grow with us.
-            </p>
-          </div>
-          <div class="team-join-grid">
-            <!-- Graduate Students -->
-            <div class="team-join-card" style="--card-accent: #4a90a4; --icon-bg: rgba(74, 144, 164, 0.12); --icon-color: #4a90a4;">
-              <div class="team-join-card-icon">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-              <h3 class="team-join-card-title">Graduate Students</h3>
-              <p class="team-join-card-desc">
-                Seeking PhD and Master's students in Audiology, Speech & Hearing Science, or related fields.
-              </p>
-              <ul class="team-join-card-list">
-                <li>Hands-on cochlear implant research experience</li>
-                <li>Training in psychophysics and electrophysiology</li>
-                <li>Mentorship in grant writing and publishing</li>
-                <li>Conference travel support</li>
-              </ul>
-              <span class="team-join-card-status status-recruiting">Actively Recruiting</span>
-            </div>
-            <!-- Research Assistants -->
-            <div class="team-join-card" style="--card-accent: #e07a5f; --icon-bg: rgba(224, 122, 95, 0.12); --icon-color: #e07a5f;">
-              <div class="team-join-card-icon">
-                <i class="fas fa-flask"></i>
-              </div>
-              <h3 class="team-join-card-title">Research Assistants</h3>
-              <p class="team-join-card-desc">
-                Undergraduate and post-baccalaureate positions available for students interested in hearing research.
-              </p>
-              <ul class="team-join-card-list">
-                <li>Data collection with cochlear implant users</li>
-                <li>Learn MATLAB, R, and signal processing</li>
-                <li>Ideal preparation for graduate school</li>
-                <li>Flexible hours around class schedules</li>
-              </ul>
-              <span class="team-join-card-status status-recruiting">Actively Recruiting</span>
-            </div>
-            <!-- Study Participants -->
-            <div class="team-join-card" style="--card-accent: #6b8f71; --icon-bg: rgba(107, 143, 113, 0.12); --icon-color: #6b8f71;">
-              <div class="team-join-card-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <h3 class="team-join-card-title">Study Participants</h3>
-              <p class="team-join-card-desc">
-                We're recruiting cochlear implant users and individuals with normal hearing for our research studies.
-              </p>
-              <ul class="team-join-card-list">
-                <li>Compensation provided for your time</li>
-                <li>Flexible scheduling</li>
-                <li>Contribute to improving CI technology</li>
-                <li>All CI brands and experience levels welcome</li>
-              </ul>
-              <span class="team-join-card-status status-recruiting">Enrolling Now</span>
-            </div>
-          </div>
-          <div class="team-join-bottom">
-            <div class="team-join-bottom-content">
-              <h3 class="team-join-bottom-title">
-                Ready to <em>get started?</em>
-              </h3>
-              <p class="team-join-bottom-desc">
-                Send us an email with your CV and a brief description of your interests. We'd love to hear from you.
-              </p>
-              <a href="../contact/" class="team-join-btn">
-                Contact Us →
-              </a>
-            </div>
-          </div>
+        <div class="team-cta-content">
+          <h2 class="team-cta-title">
+            Interested in <em>joining us?</em>
+          </h2>
+          <p class="team-cta-desc">
+            We're always looking for motivated students and research participants to advance hearing science.
+          </p>
+          <a href="../contact/" class="team-cta-btn">
+            View Opportunities →
+          </a>
         </div>
     design:
       columns: "1"
       spacing:
-        padding: ["100px", "20px", "120px", "20px"]
-      css_class: "team-page team-join-section"
+        padding: ["100px", "20px", "100px", "20px"]
+      css_class: "team-page team-cta"
 ---

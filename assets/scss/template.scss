@@ -224,6 +224,9 @@ a.navbar-brand,
   padding: 6px 0 !important;
   transition: all var(--transition-base) !important;
   position: relative !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 a.navbar-brand:hover {
@@ -975,22 +978,22 @@ html[data-theme="dark"] .navbar-nav .nav-link.active {
 /* Tablet & Below */
 @media (max-width: 991px) {
   a.navbar-brand {
-    font-size: 1.15rem !important;
-    gap: 12px !important;
+    font-size: 1.1rem !important;
+    gap: 10px !important;
   }
   
   a.navbar-brand::before {
-    width: 40px !important;
-    height: 40px !important;
-    min-width: 40px !important;
-    border-radius: 12px !important;
-    background-size: 24px 24px, cover !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    border-radius: 10px !important;
+    background-size: 20px 20px, cover !important;
   }
   
   a.navbar-brand::after {
-    width: 46px !important;
-    height: 46px !important;
-    border-radius: 14px !important;
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 12px !important;
   }
 }
 
@@ -1000,6 +1003,34 @@ html[data-theme="dark"] .navbar-nav .nav-link.active {
     --font-size-base: 16px;
     --font-size-h1: 2rem;
     --font-size-h2: 1.3rem;
+  }
+  
+  .navbar,
+  nav.navbar,
+  #navbar-main,
+  header nav {
+    padding: 6px 0 !important;
+  }
+  
+  a.navbar-brand {
+    font-size: 1rem !important;
+    gap: 8px !important;
+    max-width: calc(100vw - 80px) !important;
+  }
+  
+  a.navbar-brand::before {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    border-radius: 8px !important;
+    background-size: 18px 18px, cover !important;
+    box-shadow: 
+      0 2px 8px rgba(74, 144, 164, 0.3),
+      0 1px 2px rgba(10, 22, 40, 0.1) !important;
+  }
+  
+  a.navbar-brand::after {
+    display: none !important;
   }
   
   .article-container {
@@ -1018,20 +1049,51 @@ html[data-theme="dark"] .navbar-nav .nav-link.active {
 /* Small Mobile */
 @media (max-width: 576px) {
   a.navbar-brand {
-    font-size: 1rem !important;
-    gap: 10px !important;
+    font-size: 0.9rem !important;
+    gap: 8px !important;
+    max-width: calc(100vw - 70px) !important;
   }
   
   a.navbar-brand::before {
-    width: 36px !important;
-    height: 36px !important;
-    min-width: 36px !important;
-    border-radius: 10px !important;
-    background-size: 20px 20px, cover !important;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    border-radius: 7px !important;
+    background-size: 16px 16px, cover !important;
+  }
+}
+
+/* Extra Small Mobile (narrow screens) */
+@media (max-width: 420px) {
+  a.navbar-brand {
+    font-size: 0.85rem !important;
+    gap: 6px !important;
+    max-width: calc(100vw - 60px) !important;
   }
   
-  a.navbar-brand::after {
-    display: none !important;
+  a.navbar-brand::before {
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+    border-radius: 6px !important;
+    background-size: 14px 14px, cover !important;
+  }
+}
+
+/* Very narrow screens */
+@media (max-width: 360px) {
+  a.navbar-brand {
+    font-size: 0.78rem !important;
+    gap: 5px !important;
+    line-height: 1.2 !important;
+  }
+  
+  a.navbar-brand::before {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    border-radius: 5px !important;
+    background-size: 13px 13px, cover !important;
   }
 }
 

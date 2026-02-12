@@ -15,6 +15,11 @@ title: Electric & Acoustic Hearing Lab
 baseURL: 'https://eahlab.com/'
 copyright: '© {year} Electric & Acoustic Hearing Lab. University of South Alabama.'
 
+params:
+  description: "Cochlear implant research lab at University of South Alabama investigating neural health, personalized stimulation strategies, and pitch perception to improve hearing outcomes."
+  keywords: "cochlear implant research, auditory neuroscience, hearing lab, neural health, CI psychophysics, University of South Alabama"
+
+
 # -----------------------------------------------------------------------------
 # LANGUAGE & LOCALIZATION
 # -----------------------------------------------------------------------------
@@ -143,7 +148,7 @@ security:
 # SITEMAP
 # -----------------------------------------------------------------------------
 sitemap:
-  changefreq: weekly
+  changefreq: monthly
   priority: 0.5
   filename: sitemap.xml
   _merge: deep
