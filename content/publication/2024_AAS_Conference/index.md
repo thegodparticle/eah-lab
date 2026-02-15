@@ -1,7 +1,11 @@
 ---
 title: "Music Remixing Preferences of Prelingual and Postlingual Cochlear Implant Users"
 date: "2024-02-17"
+lastmod: "2024-02-17"
 doi: ""
+sitemap:
+  priority: 0.6
+  changefreq: yearly
 authors:
 - Niyazi Arslan
 - Amanda Vecellio

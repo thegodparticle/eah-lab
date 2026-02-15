@@ -11,8 +11,14 @@
 
 {{/* Enhanced SEO Meta Tags */}}
 <meta name="author" content="Dr. Niyazi Ömer Arslan">
+{{/* Noindex taxonomy and term pages (tags, categories, authors, publication_types) to focus crawl budget on real content */}}
+{{ if or (eq .Kind "taxonomy") (eq .Kind "term") -}}
+<meta name="robots" content="noindex, follow">
+<meta name="googlebot" content="noindex, follow">
+{{- else -}}
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="googlebot" content="index, follow">
+{{- end }}
 <meta name="keywords" content="cochlear implant research, auditory neuroscience, hearing lab, neural health, pitch perception, University of South Alabama, hearing research, audiology research, CI psychophysics">
 
 {{/* Open Graph Enhancements */}}

@@ -1,7 +1,11 @@
 ---
 title: "Effects of Pulse Shape on Pitch Sensitivity of Cochlear Implant Users"
 date: "2024-07-03"
+lastmod: "2024-07-03"
 doi: "10.1016/j.heares.2024.109075"
+sitemap:
+  priority: 0.7
+  changefreq: yearly
 authors:
 - Niyazi Arslan
 - Xin Luo

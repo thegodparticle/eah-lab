@@ -1,7 +1,12 @@
 ---
 title: Join Us
 date: "2026-01-01"
+lastmod: "2026-02-15"
 type: landing
+
+sitemap:
+  priority: 0.7
+  changefreq: monthly
 
 sections:
   # -----------------------------------------------------------------------------

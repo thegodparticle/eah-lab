@@ -1,1 +1,31 @@
+# ============================================================================
+# ELECTRIC & ACOUSTIC HEARING LAB - ROBOTS.TXT
+# https://eahlab.com/robots.txt
+# ============================================================================
+
+# Allow all search engines to crawl the site
 User-agent: *
+Allow: /
+
+# Directories to exclude from indexing
+Disallow: /admin/
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /_headers
+Disallow: /_redirects
+
+# Block common bot crawlers that waste bandwidth
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# Sitemap location (important for SEO)
+Sitemap: https://eahlab.com/sitemap.xml
+
+# Host directive (preferred domain)
+Host: https://eahlab.com

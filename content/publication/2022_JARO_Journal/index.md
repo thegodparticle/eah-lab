@@ -7,7 +7,11 @@ authors:
 - Niyazi Arslan
 - Xin Luo
 date: "2022-11-03"
+lastmod: "2022-11-03"
 doi: "10.1007/s10162-022-00876-w"
+sitemap:
+  priority: 0.7
+  changefreq: yearly
 featured: true
 image:
   caption: 'Neural health assessment in cochlear implant users'

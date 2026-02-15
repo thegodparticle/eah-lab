@@ -1,8 +1,12 @@
 ---
 title: "Invited Talk at CIAP 2025: Unraveling Auditory Nerve Condition"
 date: 2025-07-16
+lastmod: 2025-07-16
 authors:
   - admin
+sitemap:
+  priority: 0.6
+  changefreq: yearly
 tags:
   - Conference
   - Presentation

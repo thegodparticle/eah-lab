@@ -1,7 +1,11 @@
 ---
 title: "Sound quality perception of cochlear implant recipients; low-frequency information and foreign-language effect"
 date: "2021-12-12"
+lastmod: "2021-12-12"
 doi: "10.1080/14992027.2021.2005833"
+sitemap:
+  priority: 0.7
+  changefreq: yearly
 authors:
 - Niyazi Arslan
 - Ahmet Alperen Akbulut

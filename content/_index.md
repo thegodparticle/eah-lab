@@ -2,6 +2,11 @@
 title: Home
 type: landing
 date: "2026-01-01"
+lastmod: "2026-02-15"
+
+sitemap:
+  priority: 1.0
+  changefreq: weekly
 
 design:
   css_class: "eahl-landing"
