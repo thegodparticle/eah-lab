@@ -1,2 +1,9 @@
-{{/* Wrapper to load the custom head partial from the subdirectory */}}
-{{ partial "custum_footers_head/custom_head" . }}
+{{/* Wrapper to load the custom head partial and global CSS */}}
+
+{{/* Load consolidated EAHL stylesheet via Hugo's asset pipeline */}}
+{{ with resources.Get "css/eahl.css" }}
+  {{ $css := . | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+{{ end }}
+
+{{ partial "custom_footers_head/custom_head" . }}
