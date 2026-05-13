@@ -23,10 +23,6 @@ links:
   - icon_pack: fas
     icon: display
     name: View Slides (fullscreen)
-    url: "/presentations/cotl-2026/"
-  - icon_pack: fas
-    icon: external-link-alt
-    name: Original host
     url: "https://aud613.niyaziarslan.com/presentations/cotl-2026.html"
 ---
 
@@ -35,12 +31,12 @@ It was a pleasure to present at the **University of South Alabama Conference on 
 ## Slides
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 6px 24px -10px rgba(28, 25, 23, 0.18); border: 1px solid #e7e5e4; margin: 1.5rem 0;">
-  <iframe src="/presentations/cotl-2026/" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen title="Human in the Loop: Faculty-Directed AI for Canvas Course Development"></iframe>
+  <iframe src="https://aud613.niyaziarslan.com/presentations/cotl-2026.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen title="Human in the Loop: Faculty-Directed AI for Canvas Course Development"></iframe>
 </div>
 
 *Use the arrow keys to navigate, press <kbd>F</kbd> for fullscreen, <kbd>S</kbd> for speaker notes, or <kbd>Esc</kbd> for the slide overview.*
 
-My talk, *"Human in the Loop: Faculty-Directed AI for Canvas Course Development,"* walked through a workflow I have been using in my own graduate audiology courses, AUD613 Psychoacoustics and AUD647 Adult Rehabilitation and Aging, that puts the faculty member in the deciding seat at every step.
+My talk, *"Human in the Loop: Faculty-Directed AI for Canvas Course Development,"* walked through a workflow I have been using in my own graduate audiology courses.
 
 ## Talk Summary
 
