@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUD 613 | Psychoacoustics</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        'brand-bg': '#f8fafc',    /* Slate 50 */
+                        'brand-text': '#0f172a',  /* Slate 900 */
+                        'brand-cyan': '#0891b2',  /* Cyan 600 */
+                        'brand-violet': '#7c3aed', /* Violet 600 */
+                        'brand-magenta': '#c026d3', /* Fuchsia 600 */
+                    },
+                    animation: {
+                        'breathe': 'breathe 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        breathe: {
+                            '0%, 100%': { opacity: '0.9', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.01)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styles */
+        body { 
+            background-color: #f8fafc; 
+            color: #0f172a; 
+            overflow-x: hidden; 
+        }
+        
+        /* Fixed Canvas Background */
+        #waveCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            opacity: 0.5; 
+        }
+
+        /* Typography & Gradients */
+        .text-gradient {
+            background: linear-gradient(to bottom right, #0891b2 20%, #7c3aed 50%, #c026d3 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Glass Panels */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75); 
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+        }
+
+        .glass-pill {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Scrollbar customization for the content card */
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    
+    @media (prefers-reduced-motion: reduce) {
+        .animate-pulse { animation: none; }
+        .animate-fade-in-up { animation: none; opacity: 1; transform: none; }
+        .animate-breathe { animation: none; }
+        * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-cyan selection:text-white">
+
+    <canvas id="waveCanvas"></canvas>
+    
+    <main class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-16 flex flex-col lg:flex-row items-center gap-10 lg:gap-16 min-h-[600px]">
+
+        <div class="flex-1 text-center lg:text-left space-y-8 lg:space-y-10 animate-fade-in-up">
+            
+            <div class="inline-block opacity-90">
+                <span class="font-mono text-brand-cyan tracking-[0.4em] text-sm font-bold uppercase py-2 border-b-2 border-brand-cyan/20">
+                    AUD 613
+                </span>
+            </div>
+
+            <h1 class="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-slate-900 tracking-tighter leading-[0.9] select-none">
+                Psycho<br /><span class="text-gradient">acoustics</span>
+            </h1>
+
+            <div class="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-center lg:items-start xl:items-center gap-4 text-lg font-medium text-slate-500">
+                <span class="text-brand-cyan">Physics of Sound</span>
+                <span class="hidden sm:inline lg:hidden xl:inline text-slate-300">•</span>
+                <span class="text-brand-magenta">Perception of Hearing</span>
+            </div>
+
+            <div class="inline-block">
+                <div class="glass-pill flex items-center gap-4 px-6 py-3 rounded-full hover:scale-105 transition-transform duration-300 cursor-default">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-cyan via-brand-violet to-brand-magenta p-[2px]">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center">
+                            <span class="text-xs font-bold text-slate-800 font-mono">NA</span>
+                        </div>
+                    </div>
+                    <div class="text-left">
+                        <span class="block text-[9px] uppercase tracking-widest text-slate-400 font-bold">Instructor</span>
+                        <span class="text-slate-800 font-semibold text-sm font-mono">Niyazi Arslan, Ph.D.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-4">
+                 <button onclick="document.getElementById('dashboard').scrollIntoView({behavior: 'smooth'})" class="inline-flex items-center gap-2 text-brand-cyan font-bold hover:underline underline-offset-4 decoration-2">
+                    Enter Course 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="flex-1 w-full max-w-2xl animate-fade-in-up" style="animation-delay: 0.15s;">
+            <div class="glass-card rounded-3xl overflow-hidden flex flex-col max-h-[85vh] lg:max-h-[650px]">
+                
+                <div class="p-8 pb-4 border-b border-slate-200/50 bg-white/40">
+                    <h2 class="text-2xl font-bold text-slate-800">Course Overview</h2>
+                </div>
+
+                <div class="p-8 pt-6 space-y-8 overflow-y-auto custom-scroll">
+                    
+                    <div class="space-y-4 text-slate-600 leading-relaxed font-light text-[0.95rem]">
+                        <p>
+                            How does the brain make sense of sound? This course traces the journey of a signal from its <span class="text-brand-cyan font-semibold">physical origins</span> to its <span class="text-brand-magenta font-semibold">perceptual experience</span>.
+                        </p>
+                        <p>
+                            We follow the signal through the peripheral auditory system, examining how the ear transduces mechanical vibrations into neural signals, and finally how the brain interprets these signals to create our perception of loudness, pitch, and spatial location.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-4">Learning Outcomes</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-xl bg-white/60 border border-slate-100 hover:border-brand-cyan/30 transition-colors">
+                                <h4 class="font-bold text-slate-800 text-sm mb-1">Physics</h4>
+                                <p class="text-xs text-slate-500">Properties of sound: pressure, intensity, frequency.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white/60 border border-slate-100 hover:border-brand-violet/30 transition-colors">
+                                <h4 class="font-bold text-slate-800 text-sm mb-1">Physiology</h4>
+                                <p class="text-xs text-slate-500">Outer, middle, and inner ear mechanisms.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white/60 border border-slate-100 hover:border-brand-magenta/30 transition-colors">
+                                <h4 class="font-bold text-slate-800 text-sm mb-1">Methods</h4>
+                                <p class="text-xs text-slate-500">Psychoacoustic measurement (SDT) & masking.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white/60 border border-slate-100 hover:border-slate-300 transition-colors">
+                                <h4 class="font-bold text-slate-800 text-sm mb-1">Perception</h4>
+                                <p class="text-xs text-slate-500">Loudness, pitch, and localization cues.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <section id="dashboard" class="relative z-10 w-full max-w-5xl mx-auto px-6 pb-20 pt-8">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl font-bold text-slate-800 tracking-tight">Quick Access</h2>
+            <div class="h-1 w-12 bg-brand-cyan mx-auto mt-3 rounded-full opacity-80"></div>
+        </div>
+
+        <a href="https://usaonline.southalabama.edu/courses/98963/modules/582510" target="_top" aria-label="Open Module 0: Getting Started in Canvas" class="group block mb-8 relative overflow-hidden rounded-2xl bg-gradient-to-r from-brand-cyan to-brand-violet p-5 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative flex items-center gap-5">
+                <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <i data-lucide="rocket" class="w-7 h-7 text-white" aria-hidden="true"></i>
+                </div>
+                <div class="flex-1">
+                    <h3 class="font-bold text-lg text-white">New Student? Start Here</h3>
+                    <p class="text-xs text-white/80 font-medium uppercase tracking-wider">Module 0 &mdash; Course Orientation</p>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white group-hover:bg-white group-hover:text-brand-violet transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </div>
+            </div>
+        </a>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <a href="https://usaonline.southalabama.edu/courses/98963/assignments/syllabus" target="_top" aria-label="Open Syllabus in Canvas" class="group relative overflow-hidden bg-white p-5 rounded-2xl border border-slate-200 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-cyan hover:-translate-y-1">
+                <div class="absolute inset-0 bg-gradient-to-r from-cyan-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="relative flex items-center justify-between">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-cyan-50 text-brand-cyan rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="scroll-text" class="w-6 h-6" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800 group-hover:text-brand-cyan transition-colors">Syllabus</h3>
+                            <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Course Info</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-300 group-hover:border-brand-cyan group-hover:bg-brand-cyan group-hover:text-white transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://usaonline.southalabama.edu/courses/98963/modules" target="_top" aria-label="Open Modules in Canvas" class="group relative overflow-hidden bg-white p-5 rounded-2xl border border-slate-200 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-violet hover:-translate-y-1">
+                <div class="absolute inset-0 bg-gradient-to-r from-violet-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="relative flex items-center justify-between">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-violet-50 text-brand-violet rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="library" class="w-6 h-6" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800 group-hover:text-brand-violet transition-colors">Modules</h3>
+                            <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Course Content</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-300 group-hover:border-brand-violet group-hover:bg-brand-violet group-hover:text-white transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://usaonline.southalabama.edu/courses/98963/announcements" target="_top" aria-label="Open Announcements in Canvas" class="group relative overflow-hidden bg-white p-5 rounded-2xl border border-slate-200 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-brand-magenta hover:-translate-y-1">
+                <div class="absolute inset-0 bg-gradient-to-r from-fuchsia-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="relative flex items-center justify-between">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-fuchsia-50 text-brand-magenta rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="megaphone" class="w-6 h-6" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800 group-hover:text-brand-magenta transition-colors">Announcements</h3>
+                            <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Updates</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-300 group-hover:border-brand-magenta group-hover:bg-brand-magenta group-hover:text-white transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://usaonline.southalabama.edu/courses/98963/gradebook" target="_top" aria-label="Open Grades in Canvas" class="group relative overflow-hidden bg-white p-5 rounded-2xl border border-slate-200 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-slate-400 hover:-translate-y-1">
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="relative flex items-center justify-between">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="bar-chart-3" class="w-6 h-6" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-800 group-hover:text-slate-700 transition-colors">Grades</h3>
+                            <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Your Progress</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-300 group-hover:border-slate-400 group-hover:bg-slate-700 group-hover:text-white transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="mt-16">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl font-bold text-slate-800 tracking-tight">Module Roadmap</h2>
+                <div class="h-1 w-12 bg-brand-violet mx-auto mt-3 rounded-full opacity-80"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                <a href="https://usaonline.southalabama.edu/courses/98963/modules/582252" target="_top" aria-label="Open Module 01: Foundations of Acoustics" class="group block bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="h-1.5 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+                    <div class="p-4">
+                        <span class="font-mono text-xs font-bold text-slate-400 tracking-wider">MODULE 01</span>
+                        <h3 class="font-bold text-sm text-slate-800 mt-1 group-hover:text-cyan-600 transition-colors">Foundations of Acoustics</h3>
+                        <p class="text-xs text-slate-400 mt-2">4 Lectures</p>
+                    </div>
+                </a>
+
+                <a href="https://usaonline.southalabama.edu/courses/98963/modules/591891" target="_top" aria-label="Open Module 02: Auditory Physiology" class="group block bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="h-1.5 bg-gradient-to-r from-rose-500 to-amber-500"></div>
+                    <div class="p-4">
+                        <span class="font-mono text-xs font-bold text-slate-400 tracking-wider">MODULE 02</span>
+                        <h3 class="font-bold text-sm text-slate-800 mt-1 group-hover:text-rose-600 transition-colors">Auditory Physiology</h3>
+                        <p class="text-xs text-slate-400 mt-2">3 Lectures</p>
+                    </div>
+                </a>
+
+                <a href="https://usaonline.southalabama.edu/courses/98963/modules/592306" target="_top" aria-label="Open Module 03: Psychophysics of Hearing" class="group block bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="h-1.5 bg-gradient-to-r from-violet-500 to-indigo-500"></div>
+                    <div class="p-4">
+                        <span class="font-mono text-xs font-bold text-slate-400 tracking-wider">MODULE 03</span>
+                        <h3 class="font-bold text-sm text-slate-800 mt-1 group-hover:text-violet-600 transition-colors">Psychophysics of Hearing</h3>
+                        <p class="text-xs text-slate-400 mt-2">3 Lectures</p>
+                    </div>
+                </a>
+
+                <a href="https://usaonline.southalabama.edu/courses/98963/modules/592312" target="_top" aria-label="Open Module 04: Loudness Perception" class="group block bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="h-1.5 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+                    <div class="p-4">
+                        <span class="font-mono text-xs font-bold text-slate-400 tracking-wider">MODULE 04</span>
+                        <h3 class="font-bold text-sm text-slate-800 mt-1 group-hover:text-emerald-600 transition-colors">Loudness Perception</h3>
+                        <p class="text-xs text-slate-400 mt-2">1 Lecture</p>
+                    </div>
+                </a>
+
+                <a href="https://usaonline.southalabama.edu/courses/98963/modules/592313" target="_top" aria-label="Open Module 05: Temporal Processing" class="group block bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="h-1.5 bg-gradient-to-r from-orange-500 to-amber-500"></div>
+                    <div class="p-4">
+                        <span class="font-mono text-xs font-bold text-slate-400 tracking-wider">MODULE 05</span>
+                        <h3 class="font-bold text-sm text-slate-800 mt-1 group-hover:text-orange-600 transition-colors">Temporal Processing</h3>
+                        <p class="text-xs text-slate-400 mt-2">1 Lecture</p>
+                    </div>
+                </a>
+
+                <a href="https://usaonline.southalabama.edu/courses/98963/modules/592314" target="_top" aria-label="Open Module 06: Pitch and Timbre" class="group block bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="h-1.5 bg-gradient-to-r from-fuchsia-500 to-violet-500"></div>
+                    <div class="p-4">
+                        <span class="font-mono text-xs font-bold text-slate-400 tracking-wider">MODULE 06</span>
+                        <h3 class="font-bold text-sm text-slate-800 mt-1 group-hover:text-fuchsia-600 transition-colors">Pitch &amp; Timbre</h3>
+                        <p class="text-xs text-slate-400 mt-2">2 Lectures</p>
+                    </div>
+                </a>
+
+                <a href="https://usaonline.southalabama.edu/courses/98963/modules/592315" target="_top" aria-label="Open Module 07: Spatial Hearing" class="group block bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="h-1.5 bg-gradient-to-r from-cyan-500 to-sky-500"></div>
+                    <div class="p-4">
+                        <span class="font-mono text-xs font-bold text-slate-400 tracking-wider">MODULE 07</span>
+                        <h3 class="font-bold text-sm text-slate-800 mt-1 group-hover:text-cyan-600 transition-colors">Spatial Hearing</h3>
+                        <p class="text-xs text-slate-400 mt-2">1 Lecture</p>
+                    </div>
+                </a>
+
+                <a href="https://usaonline.southalabama.edu/courses/98963/modules/592316" target="_top" aria-label="Open Module 08: Speech Perception" class="group block bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="h-1.5 bg-gradient-to-r from-indigo-500 to-violet-500"></div>
+                    <div class="p-4">
+                        <span class="font-mono text-xs font-bold text-slate-400 tracking-wider">MODULE 08</span>
+                        <h3 class="font-bold text-sm text-slate-800 mt-1 group-hover:text-indigo-600 transition-colors">Speech Perception</h3>
+                        <p class="text-xs text-slate-400 mt-2">1 Lecture</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <script>lucide.createIcons();</script>
+
+    <script>
+        (function() {
+        const canvas = document.getElementById('waveCanvas');
+        const ctx = canvas.getContext('2d');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isMobile = window.innerWidth < 768;
+
+        // Mobile: fewer elements for performance
+        const WAVE_COUNT = isMobile ? 2 : 4;
+        const FORMULA_COUNT = isMobile ? 3 : 8;
+        const RENDER_STEP = isMobile ? 16 : 8;
+
+        let width, height;
+        let waves = [];
+        let formulas = [];
+        let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+
+        const mathExpressions = ["F(ω) = ∫ f(t)e^(-iωt) dt", "Lp = 20 log(p/p₀)", "x(t) = A sin(2πft + φ)", "c = √(B/ρ)", "Z = ρ · c", "∇²p = (1/c²) ∂²p/∂t²", "f = 1/T", "y(t) = Σ Aₙ sin(nωt)"];
+        const waveColors = ['rgba(8, 145, 178, 1)', 'rgba(124, 58, 237, 1)', 'rgba(192, 38, 211, 1)', 'rgba(13, 148, 136, 1)'];
+
+        function init() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+
+            waves = [];
+            for (var i = 0; i < WAVE_COUNT; i++) {
+                waves.push({
+                    type: Math.random() > 0.5 ? 'sine' : 'am',
+                    y: height / 2 + (Math.random() * 200 - 100),
+                    baseLength: 0.002 + Math.random() * 0.002,
+                    amplitude: 50,
+                    offset: Math.random() * Math.PI * 2,
+                    color: waveColors[i % waveColors.length],
+                    phase: Math.random() * 100
+                });
+            }
+
+            formulas = [];
+            for (var i = 0; i < FORMULA_COUNT; i++) {
+                formulas.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    text: mathExpressions[Math.floor(Math.random() * mathExpressions.length)],
+                    size: 10 + Math.random() * 8,
+                    speed: 0.2 + Math.random() * 0.3,
+                    opacity: 0.15 + Math.random() * 0.25
+                });
+            }
+        }
+
+        function drawFrame(time, normX, normY) {
+            ctx.clearRect(0, 0, width, height);
+            var currentSpeed = 0.005 + (normX * 0.02);
+            var currentAmp = 20 + (normY * 100);
+
+            ctx.textAlign = "center";
+            formulas.forEach(function(f) {
+                ctx.font = f.size + "px 'JetBrains Mono', monospace";
+                ctx.fillStyle = "rgba(51, 65, 85, " + f.opacity + ")";
+                ctx.fillText(f.text, f.x, f.y);
+            });
+
+            ctx.lineWidth = 1.5;
+            ctx.lineJoin = 'round';
+
+            waves.forEach(function(wave, i) {
+                ctx.beginPath();
+                for (var x = 0; x < width; x += RENDER_STEP) {
+                    var y = wave.y;
+                    var amp = currentAmp * (0.5 + Math.sin(time * 0.5 + i) * 0.3);
+                    if (wave.type === 'sine') y += Math.sin(x * wave.baseLength + wave.phase + wave.offset) * amp;
+                    else y += Math.sin(x * wave.baseLength * 5 + wave.phase * 5) * Math.sin(x * wave.baseLength + wave.phase) * amp;
+                    if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+                }
+                ctx.strokeStyle = wave.color;
+                ctx.stroke();
+            });
+        }
+
+        window.addEventListener('mousemove', function(e) { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+        // FPS monitoring for auto-degradation
+        var slowFrames = 0;
+        var lastFrameTime = 0;
+        var animationStopped = false;
+
+        var time = 0;
+        function animate(timestamp) {
+            if (animationStopped) return;
+
+            // FPS monitoring: stop if 30+ consecutive frames below 20fps
+            if (lastFrameTime > 0) {
+                var delta = timestamp - lastFrameTime;
+                if (delta > 50) { // below 20fps
+                    slowFrames++;
+                    if (slowFrames >= 30) {
+                        animationStopped = true;
+                        drawFrame(time, 0.5, 0.5); // draw one final static frame
+                        return;
+                    }
+                } else {
+                    slowFrames = 0;
+                }
+            }
+            lastFrameTime = timestamp;
+
+            requestAnimationFrame(animate);
+            time += 0.02;
+
+            var normX = mouse.x / width;
+            var normY = 1 - (mouse.y / height);
+            var currentSpeed = 0.005 + (normX * 0.02);
+
+            formulas.forEach(function(f) {
+                f.y -= f.speed * (1 + normX);
+                if (f.y < -50) { f.y = height + 50; f.x = Math.random() * width; }
+            });
+
+            waves.forEach(function(wave) {
+                wave.phase += currentSpeed;
+            });
+
+            drawFrame(time, normX, normY);
+        }
+
+        window.addEventListener('resize', init);
+        init();
+
+        if (prefersReducedMotion) {
+            // Draw one static frame, no animation loop
+            drawFrame(0, 0.5, 0.5);
+        } else {
+            requestAnimationFrame(animate);
+        }
+        })();
+    </script>
+    <script src="/assets/js/iframe-resize.js"></script>
+</body>
+</html>
