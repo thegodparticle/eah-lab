@@ -15,23 +15,24 @@ tags:
   - Teaching
 categories:
   - News
-image:
-  focal_point: Smart
-  preview_only: false
 summary: "Dr. Arslan presented a faculty-directed AI workflow for building Canvas courses at USA's Conference on Teaching and Learning 2026."
 links:
   - icon_pack: fas
     icon: display
     name: View Slides (fullscreen)
-    url: "https://aud613.niyaziarslan.com/presentations/cotl-2026.html"
+    url: "/presentations/cotl-2026/"
 ---
+
+<p style="text-align: center; margin: 1rem 0 2rem 0;">
+  <img src="https://www.southalabama.edu/departments/ilc/images/cotl2026horizontalcolor.png" alt="COTL 2026 logo" style="max-width: 420px; width: 100%; height: auto;" />
+</p>
 
 It was a pleasure to present at the **University of South Alabama Conference on Teaching and Learning 2026 (COTL 2026)** on May 13, 2026.
 
 ## Slides
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 6px 24px -10px rgba(28, 25, 23, 0.18); border: 1px solid #e7e5e4; margin: 1.5rem 0;">
-  <iframe src="https://aud613.niyaziarslan.com/presentations/cotl-2026.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen title="Human in the Loop: Faculty-Directed AI for Canvas Course Development"></iframe>
+  <iframe src="/presentations/cotl-2026/" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen title="Human in the Loop: Faculty-Directed AI for Canvas Course Development"></iframe>
 </div>
 
 *Use the arrow keys to navigate, press <kbd>F</kbd> for fullscreen, <kbd>S</kbd> for speaker notes, or <kbd>Esc</kbd> for the slide overview.*

@@ -41,6 +41,14 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 
+# Allow same-origin iframe embedding for slide decks under /presentations/*
+# so news posts on this site can embed the Reveal.js decks.
+# External embedding stays blocked.
+[[headers]]
+  for = "/presentations/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+
 # Cache static assets
 [[headers]]
   for = "/css/*"
