@@ -13,7 +13,7 @@ theme: "theme-research-group"
 # -----------------------------------------------------------------------------
 title: Electric & Acoustic Hearing Lab
 baseURL: 'https://eahlab.com/'
-copyright: '© {year} Electric & Acoustic Hearing Lab. University of South Alabama.'
+copyright: '© {year} Niyazi Arslan'
 
 params:
   description: "Cochlear implant research lab at University of South Alabama investigating neural health, personalized stimulation strategies, and pitch perception to improve hearing outcomes."

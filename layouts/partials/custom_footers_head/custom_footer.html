@@ -88,6 +88,17 @@
   color: #ffffff;
 }
 
+/* Disclaimer row (University policy 2170, section 4.3.2.2) */
+.eahl-footer-disclaimer {
+  padding: 0 48px 20px 48px;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .eahl-footer-content {
@@ -105,14 +116,15 @@
     <div class="eahl-footer-brand">
       <strong>Electric & Acoustic Hearing Lab</strong>
       <span>·</span>
-      <span>University of South Alabama</span>
+      <span>Niyazi Arslan, University of South Alabama</span>
     </div>
     
     <div class="eahl-footer-copyright">
-      © {{ now.Year }} · <a href="mailto:niyaziarslan@southalabama.edu">niyaziarslan@southalabama.edu</a>
+      © {{ now.Year }} Niyazi Arslan · <a href="mailto:niyaziarslan@southalabama.edu">niyaziarslan@southalabama.edu</a>
     </div>
-    
 
-    
+  </div>
+  <div class="eahl-footer-disclaimer">
+    This website is maintained by Niyazi Arslan and is not an official website of the University of South Alabama. The content represents his personal views and opinions and not the views or opinions of the University of South Alabama.
   </div>
 </div>

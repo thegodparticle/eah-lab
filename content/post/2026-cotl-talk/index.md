@@ -23,10 +23,6 @@ links:
     url: "/presentations/cotl-2026/"
 ---
 
-<p style="text-align: center; margin: 1rem 0 2rem 0;">
-  <img src="https://www.southalabama.edu/departments/ilc/images/cotl2026horizontalcolor.png" alt="COTL 2026 logo" style="max-width: 420px; width: 100%; height: auto;" />
-</p>
-
 It was a pleasure to present at the **University of South Alabama Conference on Teaching and Learning 2026 (COTL 2026)** on May 13, 2026.
 
 ## Slides
