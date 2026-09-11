@@ -17,6 +17,9 @@ education:
   courses:
     - course: Au.D. (in progress)
       institution: University of South Alabama
+    - course: B.A. in English
+      institution: Missouri University of Science and Technology
+      year: 2008
 social:
   - icon: envelope
     icon_pack: fas
@@ -26,4 +29,4 @@ user_groups:
   - Grad Students
 ---
 
-Anna Le Blanc is originally from Missouri and has lived in Pensacola, Florida, for the past ten years. She is pursuing her Doctor of Audiology degree at the University of South Alabama and joined the Electric & Acoustic Hearing Lab in 2026 as an incoming Ph.D. student. Her research interests include auditory perception, individual differences in auditory outcomes, psychoacoustics, and the cognitive and neural processes that contribute to differences in hearing and cochlear implant outcomes.
+Anna Le Blanc is originally from Missouri and has lived in Pensacola, Florida, for the past ten years. She holds a B.A. in English from Missouri University of Science and Technology (2008), is pursuing her Doctor of Audiology degree at the University of South Alabama, and joined the Electric & Acoustic Hearing Lab in 2026 as an incoming Ph.D. student. Her research interests include auditory perception, individual differences in auditory outcomes, psychoacoustics, and the cognitive and neural processes that contribute to differences in hearing and cochlear implant outcomes.
